@@ -1,0 +1,51 @@
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+.toggle-container {
+	min-height: 20vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.toggle-container input[type="checkbox"] {
+	visibility: hidden;
+}
+	
+.toggle-container input[type="checkbox"]:checked + label {
+	transform: rotate(360deg);
+	background-color: #000;
+}
+
+.toggle-container input[type="checkbox"]:checked + label:before {
+	transform: translateX(60px);
+	background-color: #FFF;
+}
+
+.toggle-container label {
+	display: flex;
+	width: 120px;
+	height: 60px;
+	border: 6px solid;
+	border-radius: 99em;
+	position: relative;
+	transition: transform .75s ease-in-out;
+	transform-origin: 50% 50%;
+	cursor: pointer;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3), 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-container label:before {
+	transition: transform .75s ease;
+	transition-delay: .5s;
+	content: "";
+	display: block;
+	position: absolute;
+	width: 27px;
+	height: 27px;
+	background-color: #000;
+	border-radius: 50%;
+	top: 10px;
+	left: 12px;
+}
