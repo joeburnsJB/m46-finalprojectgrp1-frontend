@@ -2,9 +2,9 @@ import {writeCookie} from "../common"
 
 export const registerUser = async (username, password, newUser) => {
     try {
-      const response = await fetch(`${REACT_APP_BASE_URL}users/register`, {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/register`, {
         method: "POST",
-
+        mode: "cors",
         headers: {
           "Content-Type": "application/json"
         },
@@ -25,9 +25,9 @@ export const registerUser = async (username, password, newUser) => {
 
 export const loginUser = async (username, password, newUser) => {
     try {
-        const response = await fetch(`${REACT_APP_BASE_URL}users/login`, {
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/login`, {
             method: "POST",
-
+            mode: "cors",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -47,7 +47,7 @@ export const loginUser = async (username, password, newUser) => {
 }
 export const authCheck = async (jwtToken) => {
   try {
-      const response = await fetch(`${REACT_APP_BASE_URL}users/authcheck`, {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/authcheck`, {
           method: "GET",
           mode: "cors",
           headers: {
