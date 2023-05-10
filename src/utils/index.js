@@ -4,7 +4,7 @@ export const registerUser = async (username, password, newUser) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/register`, {
         method: "POST",
-
+        mode: "cors",
         headers: {
           "Content-Type": "application/json"
         },
@@ -27,7 +27,7 @@ export const loginUser = async (username, password, newUser) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/login`, {
             method: "POST",
-
+            mode: "cors",
             headers: {
                 "Content-Type": "application/json"
             },
