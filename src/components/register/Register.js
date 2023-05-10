@@ -5,10 +5,11 @@ import '../register/Register.css';
 const Register = ({ newUser }) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await registerUser(username, password, newUser);
+    await registerUser(username, password, email, newUser);
   }
 
   return (
@@ -19,10 +20,14 @@ const Register = ({ newUser }) => {
           <input onChange={(e) => setUsername(e.target.value)}></input>
         </label>
 
+        <label>Email:
+          <input onChange={(e) => setEmail(e.target.value)}></input>
+        </label>
+
         <label>Password:
           <input onChange={(e) => setPassword(e.target.value)} type="password"></input>
         </label>
-
+        
         <button type="submit" className="userRegisterButton">REGISTER</button>
       </form>
     </div>
