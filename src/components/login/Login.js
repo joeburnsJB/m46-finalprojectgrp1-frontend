@@ -6,12 +6,13 @@ import './Login.css';
 const Login = ({ newUser }) => {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
+    const [email, setEmail] = useState()
 
     const submitHandler = async (e) => {
         e.preventDefault()
         console.log(username)
         console.log(password)
-        await loginUser(username, password, newUser)
+        await loginUser(username, password, email, newUser)
     }
     
     return (
@@ -24,6 +25,10 @@ const Login = ({ newUser }) => {
             <input onChange={(e) => setUsername(e.target.value)}></input>
         </label>
         
+        <label>Email:
+            <input onChange={(e) => setEmail(e.target.value)}></input>
+        </label>
+
         <label>Password:
             <input onChange={(e) => setPassword(e.target.value)} type="password"></input>
         </label>
