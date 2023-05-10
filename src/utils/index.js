@@ -1,6 +1,6 @@
 import {writeCookie} from "../common"
 
-export const registerUser = async (username, password, newUser) => {
+export const registerUser = async (username, password, email, newUser) => {
     try {
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/register`, {
         method: "POST",
@@ -10,7 +10,8 @@ export const registerUser = async (username, password, newUser) => {
         },
         body: JSON.stringify({
           "username": username,
-          "password": password
+          "password": password,
+          "email": email
         })
       });
       console.log(response)
@@ -23,7 +24,7 @@ export const registerUser = async (username, password, newUser) => {
     }
   }
 
-export const loginUser = async (username, password, newUser) => {
+export const loginUser = async (username, password, email, newUser) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/login`, {
             method: "POST",
@@ -33,7 +34,8 @@ export const loginUser = async (username, password, newUser) => {
             },
             body: JSON.stringify({
                 "username": username,
-                "password": password
+                "password": password,
+                "email": email
             })
         })
         const data = await response.json()
