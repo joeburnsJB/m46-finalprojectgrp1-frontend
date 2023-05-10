@@ -5,13 +5,15 @@ import './Login.css';
 
 const Login = ({ newUser }) => {
     const [username, setUsername] = useState()
+    const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
     const submitHandler = async (e) => {
         e.preventDefault()
         console.log(username)
+        console.log(email)
         console.log(password)
-        await loginUser(username, password, newUser)
+        await loginUser(username, email, password, newUser)
     }
     
     return (
@@ -22,6 +24,10 @@ const Login = ({ newUser }) => {
         <form onSubmit={submitHandler} className="formLogin">
         <label>Username:
             <input onChange={(e) => setUsername(e.target.value)}></input>
+        </label>
+
+        <label>Email:
+            <input onChange={(e) => setEmail(e.target.value)}></input>
         </label>
         
         <label>Password:

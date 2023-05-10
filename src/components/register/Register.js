@@ -4,11 +4,12 @@ import '../register/Register.css';
 
 const Register = ({ newUser }) => {
   const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await registerUser(username, password, newUser);
+    await registerUser(username, email, password, newUser);
   }
 
   return (
@@ -17,6 +18,10 @@ const Register = ({ newUser }) => {
       <form onSubmit={submitHandler} className="formRegister">
         <label>Username:
           <input onChange={(e) => setUsername(e.target.value)}></input>
+        </label>
+
+        <label>Email:
+          <input onChange={(e) => setEmail(e.target.value)}></input>
         </label>
 
         <label>Password:
