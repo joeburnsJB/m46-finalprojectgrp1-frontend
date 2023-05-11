@@ -3,6 +3,7 @@ import './App.css';
 import Register from './components/register/Register';
 import Login from './components/login/Login.js'
 import Toggle from './components/Toggle/Toggle';
+import Header from './components/header/Header';
 
 import {deleteCookie, getCookie} from "./common"
 import { authCheck } from "./utils";
@@ -41,6 +42,9 @@ const App = () => {
 
   return (
     <div className="App">
+        <div className='header'>
+        <Header />
+        </div>
       {user ? (
           <div className="welcome-container">
             <h1 className="welcome-message">Welcome back, {user}!</h1>
