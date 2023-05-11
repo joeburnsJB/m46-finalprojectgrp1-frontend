@@ -1,11 +1,14 @@
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import './App.css';
 import AccountPage from './Pages/AccountPage';
 
 const App = () => {
   return (
-    <div>
-      <AccountPage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AccountPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
