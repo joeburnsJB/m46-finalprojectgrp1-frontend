@@ -14,7 +14,7 @@ const Register = ({ newUser }) => {
 
   return (
     <div className="register-container">
-      <h1>Create an account</h1>
+      <h1 className="FlipCardH1">Create an account</h1>
       <form onSubmit={submitHandler} className="formRegister">
         <label>Username:
           <input onChange={(e) => setUsername(e.target.value)}></input>
