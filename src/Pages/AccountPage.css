@@ -1,6 +1,5 @@
-
- /* ------ CARD ---- */
- .card {
+/* ------ CARD ---- */
+.card {
   height: 500px;
   width: 800px;
   transition: transform 0.6s;
@@ -10,26 +9,28 @@
 
 .front,
 .back {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
 }
 
 .front {
-z-index: 2;
+  z-index: 2;
 }
 
 .back {
-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .flipped .card {
-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
-/* ---TOGGLE--------------------*/ 
+
+/* ---TOGGLE--------------------*/
 .logout,
 .toggle-container button {
   margin: 20px;
@@ -38,12 +39,12 @@ transform: rotateY(180deg);
   background-color: #FCFCFD;
   border-radius: 4px;
   border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   box-sizing: border-box;
   color: #36395A;
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
+  font-family: "JetBrains Mono", monospace;
   height: 48px;
   justify-content: center;
   line-height: 1;
@@ -54,12 +55,12 @@ transform: rotateY(180deg);
   position: relative;
   text-align: left;
   text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
+  transition: box-shadow .15s, transform .15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  will-change: box-shadow,transform;
+  will-change: box-shadow, transform;
   font-size: 18px;
 }
 
@@ -110,8 +111,9 @@ transform: rotateY(180deg);
   justify-content: center;
   align-items: center;
 }
+
 .banner-image {
- width: 600px;
+  width: 600px;
 }
 
 .logo-container {
@@ -124,14 +126,14 @@ transform: rotateY(180deg);
   position: relative;
   top: -60px;
   width: 250px;
- }
+}
 
- .welcome-message {
+.welcome-message {
   position: relative;
   top: 0px;
- }
+}
 
- .signin-message {
+.signin-message {
   position: relative;
   top: -15px;
 }
