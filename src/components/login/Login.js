@@ -18,7 +18,7 @@ const Login = ({ newUser }) => {
     return (
       <div className="login-container">
         <>
-        <h1>Log in to your account</h1>
+        <h1 className="FlipCardH1">Log in to your account</h1>
 
         <form onSubmit={submitHandler} className="formLogin">
         <label>Username:
