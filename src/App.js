@@ -3,6 +3,7 @@ import './App.css';
 
 import Header from './components/header/Header';
 import LoginRegister from './Pages/LoginRegister';
+import UsersList from "./Pages/userslist/UsersList";
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginRegister />} />
+          <Route path="/" element={<UsersList />} />
         </Routes>
       </BrowserRouter>
     </>
