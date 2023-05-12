@@ -27,7 +27,7 @@ export default function Header() {
       <div className='menu'>
       <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/login-register">Login & Register</Link></li>
+          <li><Link to="/userlist">User List</Link></li>
           <li><a href='#'>Link 3</a></li>
           <li><a href='#'>Link 4</a></li>
           <li><a href='#'>Link 5</a></li>

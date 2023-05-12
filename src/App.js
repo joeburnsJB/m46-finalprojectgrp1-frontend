@@ -7,13 +7,15 @@ import UsersList from "./Pages/userslist/UsersList";
 
 const App = () => {
   return (
+    <>
+    <Header />
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<UsersList />} />
-        <Route path="/login-register" element={<LoginRegister />} />
+      <Route path="/" element={<LoginRegister />} />
+      <Route path="/userlist" element={<UsersList />} />
       </Routes>
     </BrowserRouter>
+    </>
   );
 };
 
