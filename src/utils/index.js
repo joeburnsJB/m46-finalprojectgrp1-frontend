@@ -120,10 +120,10 @@ export const removeWishList = async(gameID)=>{
                 "steamAppID": gameID,
             })
         })
-        const data = await response.json()
-        console.log("data below");
-        console.log(data);
-        return data
+        let statusCode = await response.status
+        console.log("status below");
+        console.log(statusCode);
+        return statusCode
     } catch (error) {
         console.log("error below")
         console.log(error);

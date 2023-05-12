@@ -58,10 +58,10 @@ const Wishlist = (props) => {
       wishListSteamIDsArray.replace(steamAppIDCut, 1);
     }
     const updateBackend = async () => {
-      const response = await removeWishList(steamAppID)
+      const statusCode = await removeWishList(steamAppID)
       console.log("response below (wishlist)")
-      console.log(response)
-      if (response.statusText === "success"){
+      console.log(statusCode)
+      if (statusCode === 204){
         props.setWishListArray(wishListSteamIDsArray)
         props.setUpdateStateArray([...props.updateStateArray,2])
         setOpen(!open)
