@@ -26,8 +26,8 @@ const UsersList = () => {
     <div className='userlist-container'>
       <h1>Users List</h1>
       <ul className='user-list'>
-        {userList.map((username, index) => (
-          <li key={index} className='user-item'>{username}</li>
+        {userList.map((user) => (
+          <li key={user.id} className='user-item'>{user.username}</li>
         ))}
       </ul>
     </div>
