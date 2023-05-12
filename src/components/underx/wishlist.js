@@ -1,33 +1,35 @@
 import './underx.css';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
-import {addWishList} from "../utils";
+import {removeWishList} from "../utils";
 
-const Underx = (props) => {
+const Wishlist = (props) => {
     const [allCharacters, setAllCharacters] = useState([]);
     const [errorMsg, setErrorMsg] = useState(null);
-    const [steamAppID, setSteamAppID] = useState(null);
     const [saleVal, setSaleVal] = useState(null);
     const [origVal, setOrigVal] = useState(null);
     const [discount, setDiscount] = useState(null);
+    const [steamAppID, setSteamAppID] = useState(null);
     const [saleGameTitle, setSaleTitle] = useState(null);
     const [open, setOpen] = useState(true)
     useEffect(() => {
-      const fetchData = async () => {
-      try {
-        let response = await fetch(props.APIurl);
-        if (!response.ok) {
-          throw new Error(response.statusText);
+        const fetchData = async () => {
+        try {
+          const URLbase = "https://www.cheapshark.com/api/1.0/deals?storeID=1&steamAppID="
+          let APIurlWishList = URLbase.concat(props.wishListArray)
+          let response = await fetch(APIurlWishList);
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+        const data = await response.json();
+        setAllCharacters(data);
+        } catch (err) {
+          console.log(err)
+          setErrorMsg(err)
         }
-      const data = await response.json();
-      setAllCharacters(data);
-      } catch (err) {
-        console.log(err)
-        setErrorMsg(err)
-      }
-    };
-    fetchData();
-    }, [])
+      };
+      fetchData();
+      }, [props])
   function handleClick (game) {
     let gameSaleprice = game.salePrice
     let gameOrigPrice = game.normalPrice
@@ -46,11 +48,19 @@ const Underx = (props) => {
   }
   function HandleWishlist (steamAppID) {
     let wishListSteamIDsArray = props.wishListArray
-    wishListSteamIDsArray.concat(steamAppID)
+    let indexID = wishListSteamIDsArray.indexOf(steamAppID);
+    if (indexID === 0) {
+        let steamAppIDCut = steamAppID.concat("%2C")
+        wishListSteamIDsArray.replace(steamAppIDCut, 1);
+    }
+    else {
+      let steamAppIDCut = "%2C".concat(steamAppID)
+      wishListSteamIDsArray.replace(steamAppIDCut, 1);
+    }
     props.setWishListArray(wishListSteamIDsArray)
     props.setUpdateStateArray([...props.updateStateArray,2])
     const updateBackend = async () => {
-      await addWishList(steamAppID)
+      await removeWishList(steamAppID)
     }
     updateBackend()
     updateBackend()
@@ -70,11 +80,11 @@ const Underx = (props) => {
         <div id='saleText'>Game: {saleGameTitle}</div>
         <div id='saleText'>Price: ${saleVal} <del>${origVal}</del></div>
         <div id='saleText'>{discount}% OFF!!</div>
-        <div id='headerStyle' onClick={() => HandleWishlist(steamAppID)}>Add to wishlist</div>
+        <div id='headerStyle' onClick={() => HandleWishlist(steamAppID)}>Remove from wishlist</div>
       </div>}
       <div id='buttonContainer'>
       {allCharacters.length == 0 &&
-      <div id='headerStyle'>No sales...</div>
+      <div id='headerStyle'>Wishlist empty...</div>
     }
       {allCharacters.map((game, index) => {
         return (
@@ -92,4 +102,4 @@ const Underx = (props) => {
   );
 };
 
-export default Underx;
+export default Wishlist;
