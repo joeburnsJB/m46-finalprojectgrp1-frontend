@@ -69,7 +69,7 @@ export const authCheck = async (jwtToken) => {
 export const addWishList = async(gameID)=>{
     try{
         let jwt = getCookie("jwt_token")
-        const response = await fetch("${process.env.REACT_APP_BASE_URL}wishlists/addwishlist",{
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}wishlists/addwishlist`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -88,7 +88,7 @@ export const addWishList = async(gameID)=>{
 export const getWishList = async()=>{
     try{
         let jwt = getCookie("jwt_token")
-        const response = await fetch("${process.env.REACT_APP_BASE_URL}wishlists/getwishlist",{
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}wishlists/getwishlist`,{
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export const getWishList = async()=>{
 export const removeWishList = async(gameID)=>{
     try{
         let jwt = getCookie("jwt_token")
-        const response = await fetch("${process.env.REACT_APP_BASE_URL}wishlists/deletewishlist",{
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}wishlists/deletewishlist`,{
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
