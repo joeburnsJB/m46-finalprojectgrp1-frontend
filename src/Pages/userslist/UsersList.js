@@ -10,7 +10,7 @@ const UsersList = () => {
 
   const fetchUserList = async () => {
     try {
-      const response = await fetch('http://localhost:5001/users/getusers');
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/getusers`);
       const data = await response.json();
       if (response.ok) {
         setUserList(data.users);
@@ -24,7 +24,7 @@ const UsersList = () => {
 
   return (
     <div className='userlist-container'>
-      <h1>User List</h1>
+      <h1>Users List</h1>
       <ul className='user-list'>
         {userList.map((username, index) => (
           <li key={index} className='user-item'>{username}</li>
