@@ -3,7 +3,7 @@ import Underx from './underx.js';
 import Wishlist from './wishlist.js';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
-import {getWishList} from "../utils";
+import {getWishList} from "../../utils";
 
 const Underxcontainer = () => {
   const [wishListArray, setWishListArray] = useState();
