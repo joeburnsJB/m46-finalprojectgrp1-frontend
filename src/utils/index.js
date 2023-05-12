@@ -80,6 +80,7 @@ export const addWishList = async(gameID)=>{
             })
         })
         const data = await response.json()
+        console.log(data);
     } catch (error) {
         console.log(error);
     }
@@ -117,6 +118,7 @@ export const removeWishList = async(gameID)=>{
             })
         })
         const data = await response.json()
+        console.log(data);
     } catch (error) {
         console.log(error);
     }
