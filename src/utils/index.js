@@ -81,6 +81,7 @@ export const addWishList = async(gameID)=>{
         })
         const data = await response.json()
         console.log(data);
+        return data
     } catch (error) {
         console.log(error);
     }
@@ -105,8 +106,10 @@ export const getWishList = async()=>{
 }
 
 export const removeWishList = async(gameID)=>{
+    console.log("in remove wishlist")
     try{
         let jwt = getCookie("jwt_token")
+        console.log("jwt here",jwt)
         const response = await fetch(`${process.env.REACT_APP_BASE_URL}wishlists/deletewishlist`,{
             method: "DELETE",
             headers: {
@@ -118,8 +121,11 @@ export const removeWishList = async(gameID)=>{
             })
         })
         const data = await response.json()
+        console.log("data below");
         console.log(data);
+        return data
     } catch (error) {
+        console.log("error below")
         console.log(error);
     }
 }

@@ -57,14 +57,18 @@ const Wishlist = (props) => {
       let steamAppIDCut = "%2C".concat(steamAppID)
       wishListSteamIDsArray.replace(steamAppIDCut, 1);
     }
-    props.setWishListArray(wishListSteamIDsArray)
-    props.setUpdateStateArray([...props.updateStateArray,2])
     const updateBackend = async () => {
-      await removeWishList(steamAppID)
+      const response = await removeWishList(steamAppID)
+      console.log("response below (wishlist)")
+      console.log(response)
+      if (response.statusText === "success"){
+        props.setWishListArray(wishListSteamIDsArray)
+        props.setUpdateStateArray([...props.updateStateArray,2])
+        setOpen(!open)
+      }
     }
     updateBackend()
-    updateBackend()
-    props.setUpdateStateArray([...props.updateStateArray,2])
+    
     setOpen(!open)
   }
   return (
