@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route} from "react-router-dom";
-// ^ removed link for build
 import './App.css';
 
 import Header from './components/header/Header';

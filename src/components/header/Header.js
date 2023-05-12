@@ -1,5 +1,6 @@
 import logo from './images/piston_logo_black.png';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
@@ -24,13 +25,13 @@ export default function Header() {
         <div className='bar'></div>
       </div>
       <div className='menu'>
-        <ul>
-          <li><a href='#'>Link 1</a></li>
-          <li><a href='#'>Link 2</a></li>
+      <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/userlist">User List</Link></li>
           <li><a href='#'>Link 3</a></li>
           <li><a href='#'>Link 4</a></li>
           <li><a href='#'>Link 5</a></li>
-        </ul>
+      </ul>
       </div>
     </header>
   );
