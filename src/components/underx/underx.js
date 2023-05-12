@@ -1,7 +1,7 @@
 import './underx.css';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
-import {addWishList} from "../utils";
+import {addWishList} from "../../utils";
 
 const Underx = (props) => {
     const [allCharacters, setAllCharacters] = useState([]);
