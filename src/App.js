@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css';
 
 import Header from './components/header/Header';
@@ -7,15 +7,14 @@ import UsersList from "./Pages/userslist/UsersList";
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<UsersList />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+      <Routes>
+        <Route path="/" element={<UsersList />} />
+        <Route path="/login-register" element={<LoginRegister />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
