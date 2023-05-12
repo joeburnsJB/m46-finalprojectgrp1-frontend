@@ -47,15 +47,18 @@ const Underx = (props) => {
   function HandleWishlist (steamAppID) {
     let wishListSteamIDsArray = props.wishListArray
     wishListSteamIDsArray.concat(steamAppID)
-    props.setWishListArray(wishListSteamIDsArray)
-    props.setUpdateStateArray([...props.updateStateArray,2])
     const updateBackend = async () => {
-      await addWishList(steamAppID)
+      const response = await addWishList(steamAppID)
+      console.log("response below (underx)")
+      console.log(response)
+      if (response.message === "success"){
+        props.setWishListArray(wishListSteamIDsArray)
+        props.setUpdateStateArray([...props.updateStateArray,2])
+        setOpen(!open)
+      }
     }
     updateBackend()
-    updateBackend()
-    props.setUpdateStateArray([...props.updateStateArray,2])
-    setOpen(!open)
+    
   }
   return (
     <div className='containerbox'>

@@ -11,7 +11,7 @@ export default function Header() {
     <header className='header-container'>
       <section className='logo-section'>
         <p className='title'>Piston</p>
-        <img src={logo} className='logo' />
+        <img src={logo} alt="logo" className='logo' />
       </section>
       <div className='search-bar'>
         <form action="">
