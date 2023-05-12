@@ -1,7 +1,7 @@
-import './AccountPage.css';
+import './LoginRegister.css';
 
 import Register from '../components/register/Register';
-import Login from '../components/login/Login.js'
+import Login from '../components/login/Login'
 import Toggle from '../components/Toggle/Toggle';
 
 import {deleteCookie, getCookie} from "../common"
@@ -9,7 +9,7 @@ import { authCheck } from "../utils";
 
 import { useState, useEffect } from 'react';
 
-const AccountPage = () => {
+const LoginRegister = () => {
 
     const [user, setUser] = useState();
     const [isFlipped, setIsFlipped] = useState(false);
@@ -74,4 +74,4 @@ const AccountPage = () => {
     );
   }
 
-export default AccountPage;
+export default LoginRegister;
