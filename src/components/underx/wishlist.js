@@ -5,6 +5,9 @@ import {removeWishList} from "../../utils";
 
 const Wishlist = (props) => {
     const [allCharacters, setAllCharacters] = useState([]);
+    const [gameLookUp, setGameLookUp] = useState(null);
+    const [dealLookUp, setDealLookUp] = useState(null);
+    const [gameID, setGameID] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
     const [saleVal, setSaleVal] = useState(null);
     const [origVal, setOrigVal] = useState(null);
@@ -30,7 +33,28 @@ const Wishlist = (props) => {
       };
       fetchData();
       }, [props])
+      useEffect(() => {
+        const fetchData = async () => {
+        try {
+          let URL = "https://www.cheapshark.com/api/1.0/games?id=".concat(gameID)
+          let response = await fetch(URL);
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+        const data = await response.json();
+        let dealData = data.deals
+        setDealLookUp(dealData);
+        setGameLookUp(data)
+        } catch (err) {
+          console.log(err)
+          setErrorMsg(err)
+        }
+      };
+      fetchData();
+    }, [gameID])
   function handleClick (game) {
+    let gameSaleID = game.gameID
+    setGameID(gameSaleID)
     let gameSaleprice = game.salePrice
     let gameOrigPrice = game.normalPrice
     let gameDiscount = Math.round(game.savings)
@@ -83,12 +107,36 @@ const Wishlist = (props) => {
         <div id='xStyle' onClick={() => handleClose()}>❌</div>
         <div id='saleText'>Game: {saleGameTitle}</div>
         <div id='saleText'>Price: ${saleVal} <del>${origVal}</del></div>
+        <h1>Cheapest ever price: ${gameLookUp.cheapestPriceEver.price}</h1>
         <div id='saleText'>{discount}% OFF!!</div>
-        <div id='headerStyle' onClick={() => HandleWishlist(steamAppID)}>Remove from wishlist</div>
+        <br></br>
+        <a id='headerStyle' className='wishlistMO' onClick={() => HandleWishlist(steamAppID)}>Remove from wishlist</a>
+        <br></br>
+        <br></br>
+        <h1>Stores (cheapest to most expensive)</h1>
+        <div id='diffStoreArray'>
+        {dealLookUp.map((store, index) => {
+          let storeIDForURL = store.storeID - 1
+          let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")
+          if (store.price === store.retailPrice) {
+            return(console.log())
+          }
+          else {        
+            return (
+            <div id='buttonStyling'>
+              <img key={index} src = {storeURL}></img>
+              <p>Current Price: ${store.price}</p>
+              <p>Retail Price: ${store.retailPrice}</p>
+            </div>
+          )}
+
+      })}
+      </div>
+        
       </div>}
       <div id='buttonContainer'>
       {allCharacters.length == 0 &&
-      <div id='headerStyle'>Wishlist empty...</div>
+      <div id='headerStyle'>No sales...</div>
     }
       {allCharacters.map((game, index) => {
         return (
