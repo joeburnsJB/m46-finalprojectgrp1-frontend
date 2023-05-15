@@ -46,8 +46,8 @@ const LoginRegister = () => {
         {user ? (
             <div className="welcome-container">
               <h1 className="welcome-message">Welcome back, {user}!</h1>
+                            <button className="logout" onClick={handleLogOut}>Log Out</button>
               <Underxcontainer/>
-              <button className="logout" onClick={handleLogOut}>Log Out</button>
             </div>
         ) : (
         <div>

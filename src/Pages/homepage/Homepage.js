@@ -31,7 +31,7 @@ const Homepage = () => {
           <Underx id="under4"></Underx>
         </div>
         <div className="box2">
-          <Underx id="under7"></Underx>
+          {/* <Underx id="under7"></Underx> */}
         </div>
       </div>
       <div className="flexbox2">
@@ -40,12 +40,12 @@ const Homepage = () => {
             <Wishlist></Wishlist>
           </div>
         ) : (
-          <a href="/">
+          <a className="feature-container" href="/login-register">
             <p>To access more features please log in</p>
             <button className="login-button">Login</button>
           </a>
         )}
-        <div className="box4">Test 4</div>
+        {/* <div className="box4">Test 4</div> */}
       </div>
     </div>
   );
