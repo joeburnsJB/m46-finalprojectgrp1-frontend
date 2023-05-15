@@ -48,9 +48,8 @@ export default function Header() {
   };
 
   const handleResultClick = (gameID) => {
-    // Handle the click event for a specific result item
     console.log(`Clicked gameID: ${gameID}`);
-    setIsDropdownOpen(false); // Close the dropdown after clicking
+    setIsDropdownOpen(false); 
   };
 
   return (
