@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Homepage.css";
-import Underx from "../../components/underx/underxcontainer";
-import Wishlist from "../../components/underx/wishlist";
+import Underxcontainer from "../../components/underx/underxcontainer";
+import FilterPage from "../../components/underx/gamesFilter";
 import { authCheck } from "../../utils/index";
 import { getCookie } from '../../common';
 
@@ -37,7 +37,6 @@ const Homepage = () => {
       <div className="flexbox2">
         {isLoggedIn ? (
           <div className="box3">
-            <Wishlist></Wishlist>
           </div>
         ) : (
           <a className="feature-container" href="/login-register">
