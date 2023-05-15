@@ -9,8 +9,8 @@ import Homepage from './Pages/homepage/Homepage';
 const App = () => {
   return (
     <>
-      <Header />
       <BrowserRouter>
+      <Header />
         <Routes>
           <Route path="/" element={<LoginRegister />} />
           <Route path="/userlist" element={<UsersList />} />
