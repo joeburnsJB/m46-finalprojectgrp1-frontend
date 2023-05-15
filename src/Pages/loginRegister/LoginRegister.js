@@ -3,7 +3,7 @@ import './LoginRegister.css';
 import Register from '../../components/register/Register';
 import Login from '../../components/login/Login'
 import Toggle from '../../components/Toggle/Toggle';
-import Underxcontainer from '../../components/underx/underxcontainer';
+// import Underxcontainer from '../../components/underx/underxcontainer';
 
 
 import {deleteCookie, getCookie} from "../../common"
@@ -46,7 +46,7 @@ const LoginRegister = () => {
         {user ? (
             <div className="welcome-container">
               <h1 className="welcome-message">Welcome back, {user}!</h1>
-              <Underxcontainer/>
+              {/* <Underxcontainer/> */}
               <button className="logout" onClick={handleLogOut}>Log Out</button>
             </div>
         ) : (
