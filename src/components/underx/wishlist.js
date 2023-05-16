@@ -110,7 +110,7 @@ const Wishlist = (props) => {
         <h1>Cheapest ever price: ${gameLookUp.cheapestPriceEver.price}</h1>
         <div id='saleText'>{discount}% OFF!!</div>
         <br></br>
-        <a id='headerStyle' className='wishlistMO' onClick={() => HandleWishlist(steamAppID)}>Remove from wishlist</a>
+        <b id='headerStyle' className='wishlistMO' onClick={() => HandleWishlist(steamAppID)}>Remove from wishlist</b>
         <br></br>
         <br></br>
         <h1>Stores (cheapest to most expensive)</h1>
@@ -124,7 +124,7 @@ const Wishlist = (props) => {
           else {        
             return (
             <div id='buttonStyling'>
-              <img key={index} src = {storeURL}></img>
+              <img href={index} key={index} src = {storeURL} alt={index}></img>
               <p>Current Price: ${store.price}</p>
               <p>Retail Price: ${store.retailPrice}</p>
             </div>
@@ -135,14 +135,14 @@ const Wishlist = (props) => {
         
       </div>}
       <div id='buttonContainer'>
-      {allCharacters.length == 0 &&
+      {allCharacters.length === 0 &&
       <div id='headerStyle'>No sales...</div>
     }
       {allCharacters.map((game, index) => {
         return (
           <div>
             <button id='buttonStyling' className='buttonStyleRemove' onClick={() => handleClick(game)}>
-              <img key={index} src = {game.thumb}></img>
+              <img href={index} key={index} src = {game.thumb} alt={index}></img>
               <p><del>${game.normalPrice}</del></p>
               <p>${game.salePrice}</p>
             </button>
