@@ -129,3 +129,31 @@ export const removeWishList = async(gameID)=>{
         console.log(error);
     }
 }
+
+export const deleteAccount = async () => {
+  try {
+    const token = getCookie("jwt_token");
+    const username = await authCheck(token);
+    
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/deleteuser`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        username: username
+      }),
+    });
+
+    if (response.ok) {
+      window.alert("Account deleted successfully");
+      window.location.href = "/login-register";
+    } else {
+      const errorData = await response.json();
+      throw new Error(errorData.errorMessage);
+    }
+  } catch (error) {
+    console.log("Error deleting account:", error.message);
+  }
+};
