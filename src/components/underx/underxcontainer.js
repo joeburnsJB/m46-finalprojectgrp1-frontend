@@ -11,7 +11,7 @@ const Underxcontainer = (props) => {
   useEffect(() => {
   const fetchData = async () => {
     let gamesOnWishListobj = await getWishList()
-    let gamesOnWishList = JSON.stringify(gamesOnWishListobj).replaceAll(",", "%2C").replace(/[^a-zA-Z0-9%]/g, "");
+    let gamesOnWishList = "0%2C".concat(JSON.stringify(gamesOnWishListobj).replaceAll(",", "%2C").replace(/[^a-zA-Z0-9%]/g, ""));
     setWishListArray(gamesOnWishList)
   };
   fetchData();
