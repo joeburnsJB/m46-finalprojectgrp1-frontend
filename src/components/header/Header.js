@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [linkQuery, setLinkQuery] = useState("/");
   const [searchResults, setSearchResults] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -29,26 +30,36 @@ export default function Header() {
     setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = async (event) => {
     setSearchQuery(event.target.value);
-  };
-
-  const handleSearch = async (event) => {
-    event.preventDefault();
+    let linkQueryValue = "/search/".concat(event.target.value)
+    setLinkQuery(linkQueryValue)
     try {
       const response = await fetch(
         `https://www.cheapshark.com/api/1.0/games?title=${searchQuery}&limit=10&exact=0`
       );
       const data = await response.json();
       setSearchResults(data);
-      setIsDropdownOpen(true);
+      if (event.target.value === "") {
+        setIsDropdownOpen(false);
+      }
+      else {
+        setIsDropdownOpen(true)
+      }
     } catch (error) {
       console.log('Error fetching games:', error);
     }
   };
 
-  const handleResultClick = (gameID) => {
-    console.log(`Clicked gameID: ${gameID}`);
+  const handleSearch = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const handleResultClick = (game) => {
+    console.log(`Clicked gameID: ${game.gameID}`);
+    setSearchQuery(game.external)
+    let linkQueryValue = "/search/".concat(game.external)
+    setLinkQuery(linkQueryValue)
     setIsDropdownOpen(false); 
   };
 
@@ -67,12 +78,15 @@ export default function Header() {
             value={searchQuery}
             onChange={handleInputChange}
           />
-          <button className='search-button' type="submit">Search</button>
+          <Link to={linkQuery}>
+            <button className='search-button' type="submit" onClick={() => handleSearch()}>Search</button>
+          </Link>
+          
         </form>
         {isDropdownOpen && (
           <div className='search-dropdown'>
             {searchResults.map((game) => (
-              <div key={game.gameID} onClick={() => handleResultClick(game.gameID)}>
+              <div key={game.gameID} onClick={() => handleResultClick(game)}>
                 {game.external}
               </div>
             ))}
