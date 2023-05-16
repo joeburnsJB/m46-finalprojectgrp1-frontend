@@ -20,7 +20,6 @@ const Underx = (props) => {
       const fetchData = async () => {
       try {
         let pageURL = props.APIurl.concat(pageNum)
-        alert(pageURL)
         let response = await fetch(pageURL);
         if (!response.ok) {
           throw new Error(response.statusText);
