@@ -129,3 +129,22 @@ export const removeWishList = async(gameID)=>{
         console.log(error);
     }
 }
+
+export const getUsers = async()=>{
+    try{
+        let jwt = getCookie("jwt_token")
+        const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/getusers`,{
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${jwt}`
+            },
+        })
+        const data = await response.json()
+        let result = data.users.map(a => a.username);
+        console.log(result)
+        return result
+    } catch (error) {
+        console.log(error);
+    }
+}
