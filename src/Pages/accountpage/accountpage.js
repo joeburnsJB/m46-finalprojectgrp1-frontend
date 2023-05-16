@@ -6,9 +6,8 @@ const AccountPage = () => {
 
   return (
     <div>
-      <h2>My Account</h2>
-      <DeleteAccount />
       <UpdateUser />
+      <DeleteAccount />
     </div>
   );
 };
