@@ -4,6 +4,7 @@ import Underxcontainer from "../../components/underx/underxcontainer";
 // import FilterPage from "../../components/underx/gamesFilter";
 import { authCheck } from "../../utils/index";
 import { getCookie } from '../../common';
+import { Link } from 'react-router-dom';
 
 const Homepage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -39,10 +40,10 @@ const Homepage = () => {
           <div className="box3">
           </div>
         ) : (
-          <a className="feature-container" href="/login-register">
+            <Link to="/login-register" className="feature-container">
             <p>To access more features please log in</p>
             <button className="login-button">Login</button>
-          </a>
+            </Link>
         )}
         {/* <div className="box4">Test 4</div> */}
       </div>
