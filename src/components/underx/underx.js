@@ -138,14 +138,14 @@ const Underx = (props) => {
         
       </div>}
       <div id='buttonContainer'>
-      <button id='buttonStyling' className='buttonStyleRemove' onClick={() => handlePrev()}><a>prev</a></button>
+      <button id='buttonStyling' className='buttonStyleRemove1' onClick={() => handlePrev()}><a>&#9664;</a></button>
       {allCharacters.length == 0 &&
       <div id='headerStyle'>No sales...</div>
     }
 
       {allCharacters.map((game, index) => {
         return (
-          <div>
+          <div className='games-container'>
             <button id='buttonStyling' className='buttonStyleRemove' onClick={() => handleClick(game)}>
               <img key={index} src = {game.thumb}></img>
               <p><del>${game.normalPrice}</del></p>
@@ -154,7 +154,7 @@ const Underx = (props) => {
           </div>
         )
       })}
-      <button id='buttonStyling' className='buttonStyleRemove' onClick={() => handleNext()}><a>next</a></button>
+      <button id='buttonStyling' className='buttonStyleRemove3' onClick={() => handleNext()}><a>&#9654;</a></button>
       </div>
     </div>
   );
