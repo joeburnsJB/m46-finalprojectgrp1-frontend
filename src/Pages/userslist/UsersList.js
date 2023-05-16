@@ -3,7 +3,7 @@ import './UsersList.css';
 import {getUsers} from "../../utils";
 
 const UsersList = () => {
-  const [userList, setUserList] = useState([]);
+  const [userList, setUserList] = useState([" "]);
 
   useEffect(() => {
     const fetchUserList = async () => {
