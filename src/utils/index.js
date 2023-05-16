@@ -142,7 +142,7 @@ export const getUsers = async()=>{
         })
         const data = await response.json()
         console.log(data)
-        let result = data.users.map(a => a.username);
+        let result = data.users.map();
         console.log(result)
         return result
     } catch (error) {
