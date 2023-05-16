@@ -124,7 +124,7 @@ const Wishlist = (props) => {
           else {        
             return (
             <div id='buttonStyling'>
-              <img href={index} key={index} src = {storeURL}></img>
+              <img href={index} key={index} src = {storeURL} alt={index}></img>
               <p>Current Price: ${store.price}</p>
               <p>Retail Price: ${store.retailPrice}</p>
             </div>
@@ -142,7 +142,7 @@ const Wishlist = (props) => {
         return (
           <div>
             <button id='buttonStyling' className='buttonStyleRemove' onClick={() => handleClick(game)}>
-              <img href={index} key={index} src = {game.thumb}></img>
+              <img href={index} key={index} src = {game.thumb} alt={index}></img>
               <p><del>${game.normalPrice}</del></p>
               <p>${game.salePrice}</p>
             </button>
