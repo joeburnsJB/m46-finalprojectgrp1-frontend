@@ -6,24 +6,40 @@ const UpdateUser = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleUpdate = async (e) => {
+  const handleUsernameUpdate = async (e) => {
     e.preventDefault();
     try {
       await updateUserInfo("username", username);
-      await updateUserInfo("password", password);
-      await updateUserInfo("email", email);
-      console.log("User information updated successfully");
-      // Add any additional logic or notifications here
+      console.log("Username updated successfully");
     } catch (error) {
-      console.log("Error updating user information:", error.message);
-      // Handle the error or display an error message
+      console.log("Error updating username:", error.message);
+    }
+  };
+
+  const handleEmailUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      await updateUserInfo("email", email);
+      console.log("Email updated successfully");
+    } catch (error) {
+      console.log("Error updating email:", error.message);
+    }
+  };
+
+  const handlePasswordUpdate = async (e) => {
+    e.preventDefault();
+    try {
+      await updateUserInfo("password", password);
+      console.log("Password updated successfully");
+    } catch (error) {
+      console.log("Error updating password:", error.message);
     }
   };
 
   return (
     <div>
       <h2>Update User Information</h2>
-      <form onSubmit={handleUpdate}>
+      <form>
         <div>
           <label>Username:</label>
           <input
@@ -31,14 +47,7 @@ const UpdateUser = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <button onClick={handleUsernameUpdate}>Update Username</button>
         </div>
         <div>
           <label>Password:</label>
@@ -47,8 +56,17 @@ const UpdateUser = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <button onClick={handlePasswordUpdate}>Update Password</button>
         </div>
-        <button type="submit">Update</button>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button onClick={handleEmailUpdate}>Update Email</button>
+        </div>
       </form>
     </div>
   );
