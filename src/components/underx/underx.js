@@ -112,7 +112,7 @@ const Underx = (props) => {
         <h1>Cheapest ever price: ${gameLookUp.cheapestPriceEver.price}</h1>
         <div id='saleText'>{discount}% OFF!!</div>
         <br></br>
-        <a id='headerStyle' className='wishlistMO' onClick={() => HandleWishlist(steamAppID)} href='a'>Add to wishlist</a>
+        <b id='headerStyle' className='wishlistMO' onClick={() => HandleWishlist(steamAppID)}>Add to wishlist</b>
         <br></br>
         <br></br>
         <h1>Stores (cheapest to most expensive)</h1>
@@ -137,7 +137,7 @@ const Underx = (props) => {
         
       </div>}
       <div id='buttonContainer'>
-      <button id='buttonStyling' className='buttonStyleRemove1' onClick={() => handlePrev()}><a href='a'>&#9664;</a></button>
+      <button id='buttonStyling' className='buttonStyleRemove1' onClick={() => handlePrev()}><b>&#9664;</b></button>
       {allCharacters.length === 0 &&
       <div id='headerStyle'>No sales...</div>
     }
@@ -153,7 +153,7 @@ const Underx = (props) => {
           </div>
         )
       })}
-      <button id='buttonStyling' className='buttonStyleRemove3' onClick={() => handleNext()}><a href='a'>&#9654;</a></button>
+      <button id='buttonStyling' className='buttonStyleRemove3' onClick={() => handleNext()}><b>&#9654;</b></button>
       </div>
     </div>
   );
