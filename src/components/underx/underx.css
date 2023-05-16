@@ -28,7 +28,9 @@
   #xStyle {
     display: flex;
     justify-content: right;
-    margin: 0.5%
+    margin: 0.5%;
+    padding: 10px;
+    cursor: pointer;
   }
 
   #buttonContainer {
@@ -45,6 +47,7 @@
     left: 5%;
     background-color: rgba(0, 0, 0, 0.71);
     border-radius: 25px;
+    z-index: 9999;
   }
   
   #closeX {
@@ -113,4 +116,22 @@ b:hover {
   right: -40px;
   border: none;
   background: none;
+}
+
+.wishlistMO {
+  position: relative;
+  top:3px;
+  right: 5px;
+  padding: 0;
+  width: 60px;
+  height: 25px;
+  background-color: #5b7d0e;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 14px; 
+  cursor: pointer;
+  margin-left: 10px;
+  cursor: pointer;
+  padding: 10px;
 }
