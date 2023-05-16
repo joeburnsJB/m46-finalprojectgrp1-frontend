@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Homepage.css";
-import Underx from "../../components/underx/underxcontainer";
+import Underxcontainer from "../../components/underx/underxcontainer";
 import FilterPage from "../../components/underx/gamesFilter";
 import { authCheck } from "../../utils/index";
 import { getCookie } from '../../common';
@@ -28,7 +28,7 @@ const Homepage = () => {
     <div className="container">
       <div className="flexbox1">
         <div className="box1">
-          <Underx id="under4"></Underx>
+          <Underxcontainer setIsLoggedIn = {setIsLoggedIn} isLoggedIn = {isLoggedIn} id="under4"></Underxcontainer>
         </div>
         <div className="box2">
           {/* <Underx id="under7"></Underx> */}
