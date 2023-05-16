@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Homepage.css";
-import Underxcontainer from "../../components/underx/underxcontainer";
+import Underx from "../../components/underx/underxcontainer";
 import FilterPage from "../../components/underx/gamesFilter";
 import { authCheck } from "../../utils/index";
 import { getCookie } from '../../common';
