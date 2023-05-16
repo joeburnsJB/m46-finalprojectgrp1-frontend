@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './UsersList.css';
 import {getUsers} from "../../utils";
+import { Link } from 'react-router-dom';
 
 const UsersList = () => {
   const [userList, setUserList] = useState([" "]);
@@ -28,9 +29,14 @@ const UsersList = () => {
         :
         <>
           {loadingCheck ?
-          <>Please log in</>
+            <Link to="/login-register" className="feature-container">
+            <p>To access Users List feature please log in</p>
+            <button className="login-button">Login</button>
+            </Link>
           :
-          <div>Loading...</div>
+          <div className='loading-animation'>
+          <div className='loading-spinner'></div>
+          </div>
           }
         </>
         }
