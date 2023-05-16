@@ -141,6 +141,7 @@ export const getUsers = async()=>{
             },
         })
         const data = await response.json()
+        console.log(data)
         let result = data.users.map(a => a.username);
         console.log(result)
         return result
