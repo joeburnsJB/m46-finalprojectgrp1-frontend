@@ -89,6 +89,7 @@ export default function Header() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/userlist">User List</Link></li>
           <li><Link to="/login-register">Login & Register</Link></li>
+          <li><Link to="/account-details">Update Account</Link></li>
         </ul>
       </div>
     </header>
