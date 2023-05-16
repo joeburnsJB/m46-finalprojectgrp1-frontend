@@ -9,7 +9,6 @@ const UsersList = () => {
     const fetchUserList = async () => {
         let data = await getUsers()
         setUserList(data)
-        alert(data)
     };
     fetchUserList();
 
