@@ -180,6 +180,7 @@ export const updateUserInfo = async (updateKey, updateValue) => {
     try {
       const token = getCookie('jwt_token');
       const username = await authCheck(token);
+      
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/updateuser`, {
         method: 'PUT',
         headers: {
