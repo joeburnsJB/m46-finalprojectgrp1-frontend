@@ -176,3 +176,33 @@ export const deleteAccount = async () => {
     console.log("Error deleting account:", error.message);
   }
 };
+
+export const updateUserInfo = async (updateKey, updateValue) => {
+    try {
+      const token = getCookie('jwt_token');
+      const username = await authCheck(token);
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/updateuser`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          "username": username,
+          "updateKey": updateKey,
+          "updateValue": updateValue
+        }),
+      });
+  
+      if (response.ok) {
+        console.log('User information updated successfully');
+        return username;
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.errorMessage);
+      }
+    } catch (error) {
+      console.log('Error updating user information:', error.message);
+      throw error;
+    }
+  };
