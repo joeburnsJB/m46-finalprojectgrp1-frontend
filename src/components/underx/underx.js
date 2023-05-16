@@ -126,7 +126,7 @@ const Underx = (props) => {
           else {        
             return (
             <div id='buttonStyling'>
-              <img key={index} src = {storeURL}></img>
+              <img href={index} key={index} src = {storeURL} alt=''></img>
               <p>Current Price: ${store.price}</p>
               <p>Retail Price: ${store.retailPrice}</p>
             </div>
@@ -146,7 +146,7 @@ const Underx = (props) => {
         return (
           <div className='games-container'>
             <button id='buttonStyling' className='buttonStyleRemove' onClick={() => handleClick(game)}>
-              <img key={index} src = {game.thumb}></img>
+              <img href={index} key={index} src = {game.thumb} alt=''></img>
               <p><del>${game.normalPrice}</del></p>
               <p>${game.salePrice}</p>
             </button>
