@@ -87,7 +87,7 @@
     flex-wrap: wrap;
   }
 
-a {
+b {
   box-shadow: 0 0 0 teal;
   background-color: rgb(64, 94, 122);
   border-radius: 4px;
@@ -96,7 +96,7 @@ a {
   padding: 0 .25rem;
   transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
 }
-a:hover {
+b:hover {
   box-shadow: 0 0 10px cyan;
   color: white;
 }
