@@ -1,33 +1,25 @@
 import { useState, useEffect } from 'react';
 import './UsersList.css';
+import {getUsers} from "../../utils";
 
 const UsersList = () => {
   const [userList, setUserList] = useState([]);
 
   useEffect(() => {
+    const fetchUserList = async () => {
+        let data = await getUsers()
+        setUserList(data)
+    };
     fetchUserList();
-  }, []);
 
-  const fetchUserList = async () => {
-    try {
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/getusers`);
-      const data = await response.json();
-      if (response.ok) {
-        setUserList(data.users);
-      } else {
-        console.log(data.errorMessage);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  }, []);
 
   return (
     <div className='userlist-container'>
       <h1>Users List</h1>
       <ul className='user-list'>
-        {userList.map((user) => (
-          <li key={user.id} className='user-item'>{user.username}</li>
+        {userList.map((username) => (
+          <li className='user-item'>{username}</li>
         ))}
       </ul>
     </div>
