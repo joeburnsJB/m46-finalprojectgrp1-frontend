@@ -184,3 +184,8 @@ cursor: pointer;
 background-color: #f1f1f1;
 }
 
+
+.menu a:hover {
+  text-shadow: 0 0 5px blue, 0 0 10px white, 0 0 20px white;
+  font-weight: bold;
+}
