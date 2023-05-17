@@ -165,6 +165,7 @@ export const deleteAccount = async () => {
     })
 
     if (response.ok) {
+      deleteCookie("jwt_token")
       window.alert("Account deleted successfully")
       window.location.href = "/login-register"
     } else {
