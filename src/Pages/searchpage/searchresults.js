@@ -18,10 +18,10 @@ const SearchPage = () => {
     const [discount, setDiscount] = useState(null);
     const [saleGameTitle, setSaleTitle] = useState(null);
     const [open, setOpen] = useState(true)
-  let location = useLocation()
-  console.log(location.pathname)
-  let locationPathname = location.pathname.replaceAll("/search/", "")
-  useEffect(() => {
+    let location = useLocation()
+    useEffect(() => {
+    console.log(location.pathname)
+    let locationPathname = location.pathname.replaceAll("/search/", "")
     const fetchData = async () => {
     try {
       let pageURL = "https://www.cheapshark.com/api/1.0/games?title=".concat(locationPathname)
@@ -37,8 +37,7 @@ const SearchPage = () => {
     }
   };
   fetchData();
-  // eslint-disable-next-line
-  }, [pageNum])
+  }, [location, pageNum])
 useEffect(() => {
     const fetchData = async () => {
     try {
