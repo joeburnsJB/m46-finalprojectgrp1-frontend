@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { updateUserInfo } from "../../utils";
+import './updateUser.css';
 
 const UpdateUser = () => {
   const [username, setUsername] = useState("");
@@ -37,36 +38,39 @@ const UpdateUser = () => {
   };
 
   return (
-    <div>
+    <div className="updateinformation">
       <h2>Update User Information</h2>
-      <form>
-        <div>
+      <form className="formupdate">
+        <div className="usernameupdate">
           <label>Username:</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
-          <button onClick={handleUsernameUpdate}>Update Username</button>
+            />
+            <button onClick={handleUsernameUpdate}>Update Username</button>
         </div>
-        <div>
+
+        <div className="passwordupdate">
           <label>Password:</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={handlePasswordUpdate}>Update Password</button>
+           <button onClick={handlePasswordUpdate}>Update Password</button>
         </div>
-        <div>
+
+        <div className="emailupdate">
           <label>Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button onClick={handleEmailUpdate}>Update Email</button>
+           <button onClick={handleEmailUpdate}>Update Email</button>
         </div>
+
       </form>
     </div>
   );
