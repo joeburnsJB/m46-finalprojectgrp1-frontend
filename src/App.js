@@ -12,7 +12,7 @@ import SearchPage from "./Pages/searchpage/searchresults"
 
 const App = () => {
   return (
-  <BrowserRouter>
+    <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
