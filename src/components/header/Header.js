@@ -14,6 +14,7 @@ export default function Header() {
     const handleClickOutside = (event) => {
       const menu = document.querySelector(".menu")
       const hamburgerMenu = document.querySelector(".hamburger-menu")
+
       if (!menu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
         setIsMenuOpen(false)
       }
@@ -34,6 +35,7 @@ export default function Header() {
     setSearchQuery(event.target.value)
     let linkQueryValue = "/search/".concat(event.target.value)
     setLinkQuery(linkQueryValue)
+
     try {
       const response = await fetch(
         `https://www.cheapshark.com/api/1.0/games?title=${searchQuery}&limit=10&exact=0`
