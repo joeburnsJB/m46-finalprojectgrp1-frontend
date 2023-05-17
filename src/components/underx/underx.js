@@ -157,7 +157,7 @@ const Underx = (props) => {
 
         </div>}
       <div id="buttonContainer">
-        <button id="buttonStyling" className="buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664</b></button>
+        <button id="buttonStyling" className="buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664;</b></button>
         {allCharacters.length === 0 &&
           <div id="headerStyle">No sales...</div>
         }
@@ -173,7 +173,7 @@ const Underx = (props) => {
             </div>
           )
         })}
-        <button id="buttonStyling" className="buttonStyleRemove3" onClick={() => handleNext()}><b>&#9654</b></button>
+        <button id="buttonStyling" className="buttonStyleRemove3" onClick={() => handleNext()}><b>&#9654;</b></button>
       </div>
     </div>
   )
