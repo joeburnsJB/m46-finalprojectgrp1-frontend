@@ -1,53 +1,53 @@
-import './LoginRegister.css';
+import "./LoginRegister.css"
 
-import Register from '../../components/register/Register';
-import Login from '../../components/login/Login';
-import Toggle from '../../components/Toggle/Toggle';
+import Register from "../../components/register/Register"
+import Login from "../../components/login/Login"
+import Toggle from "../../components/Toggle/Toggle"
 
-import { deleteCookie, getCookie } from "../../common";
-import { authCheck } from "../../utils";
+import { deleteCookie, getCookie } from "../../common"
+import { authCheck } from "../../utils"
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react"
 
 const LoginRegister = () => {
-  const [user, setUser] = useState();
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState()
+  const [isFlipped, setIsFlipped] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   const handleToggle = (isChecked) => {
-    setIsFlipped(isChecked);
-  };
+    setIsFlipped(isChecked)
+  }
 
   useEffect(() => {
-    let jwt = getCookie("jwt_token");
-    console.log("!!!!!!!!!!");
-    console.log(jwt);
+    let jwt = getCookie("jwt_token")
+    console.log("!!!!!!!!!!")
+    console.log(jwt)
 
     if (jwt !== false) {
-      loginWithToken(jwt);
+      loginWithToken(jwt)
     } else {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  }, []);
+  }, [])
 
   const loginWithToken = async (jwt) => {
-    const user = await authCheck(jwt);
-    setUser(user);
-    setIsLoading(false);
-  };
+    const user = await authCheck(jwt)
+    setUser(user)
+    setIsLoading(false)
+  }
 
   const handleLogOut = (e) => {
-    e.preventDefault();
-    setUser(null);
-    deleteCookie("jwt_token");
-  };
+    e.preventDefault()
+    setUser(null)
+    deleteCookie("jwt_token")
+  }
 
   if (isLoading) {
     return (
       <div className="loading-animation">
         <div className="loading-spinner"></div>
       </div>
-    );
+    )
   }
 
   return (
@@ -65,7 +65,7 @@ const LoginRegister = () => {
             <button className={isFlipped ? "active" : ""} onClick={() => setIsFlipped(true)}>Login</button>
           </div>
           <div className="container">
-            <div className={`card-container ${isFlipped ? 'flipped' : ''}`}>
+            <div className={`card-container ${isFlipped ? "flipped" : ""}`}>
               <div className="card">
                 <div className="front">
                   <Register newUser={setUser} />
@@ -82,7 +82,7 @@ const LoginRegister = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default LoginRegister;
+export default LoginRegister
