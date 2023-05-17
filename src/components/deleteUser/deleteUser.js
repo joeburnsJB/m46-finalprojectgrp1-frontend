@@ -1,5 +1,6 @@
 import React from "react";
 import { deleteAccount } from "../../utils";
+import './deleteUser.css';
 
 const DeleteAccount = () => {
     const handleDelete = async () => {
