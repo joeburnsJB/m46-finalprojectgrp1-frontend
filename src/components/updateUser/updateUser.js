@@ -8,7 +8,6 @@ const UpdateUser = () => {
   const [email, setEmail] = useState("")
   const [updateMessage, setUpdateMessage] = useState("")
   const [errorMessage, setErrorMessage] = useState("")
-
   const handleUsernameUpdate = async (e) => {
     e.preventDefault()
     if (!validateUsername(username)) {

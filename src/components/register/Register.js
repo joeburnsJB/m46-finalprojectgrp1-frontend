@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { registerUser } from "../../utils";
-import '../register/Register.css';
+import { useState } from "react"
+import { registerUser } from "../../utils"
+import "../register/Register.css"
 
 const Register = ({ newUser }) => {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [email, setEmail] = useState();
+  const [username, setUsername] = useState()
+  const [password, setPassword] = useState()
+  const [email, setEmail] = useState()
 
   const submitHandler = async (e) => {
-    e.preventDefault();
-    await registerUser(username, password, email, newUser);
+    e.preventDefault()
+    await registerUser(username, password, email, newUser)
   }
 
   return (
@@ -27,11 +27,11 @@ const Register = ({ newUser }) => {
         <label>Password:
           <input onChange={(e) => setPassword(e.target.value)} type="password"></input>
         </label>
-        
+
         <button type="submit" className="userRegisterButton">REGISTER</button>
       </form>
     </div>
-  );
+  )
 }
 
-export default Register;
+export default Register

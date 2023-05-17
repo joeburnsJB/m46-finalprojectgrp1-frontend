@@ -23,7 +23,6 @@ const AccountPage = () => {
       setIsLoggedIn(false)
     }
   }, [])
-
   return (
     <div>
       {isLoggedIn ? (

@@ -1,17 +1,17 @@
-import React from "react";
-import { deleteAccount } from "../../utils";
-import './deleteUser.css';
+import React from "react"
+import { deleteAccount } from "../../utils"
+import "./deleteUser.css"
 
 const DeleteAccount = () => {
-    const handleDelete = async () => {
-        try {
-          await deleteAccount();
-          console.log("Account deleted successfully");
-        } catch (error) {
-          console.log("Error deleting account:", error.message);
-        }
-      };
-      
+  const handleDelete = async () => {
+    try {
+      await deleteAccount()
+      console.log("Account deleted successfully")
+    } catch (error) {
+      console.log("Error deleting account:", error.message)
+    }
+  }
+
 
   return (
     <div className="delete-account-container">
@@ -21,7 +21,7 @@ const DeleteAccount = () => {
         Delete Account
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default DeleteAccount;
+export default DeleteAccount
