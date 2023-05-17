@@ -1,57 +1,57 @@
 import './underx.css';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
-import {addWishList} from "../../utils";
+import {removeWishList} from "../../utils";
 
-const Underx = (props) => {
-    const [pageNum, setpageNum] = useState(0);
+const Wishlist = (props) => {
     const [allCharacters, setAllCharacters] = useState([]);
     const [gameLookUp, setGameLookUp] = useState(null);
     const [dealLookUp, setDealLookUp] = useState(null);
     const [gameID, setGameID] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
-    const [steamAppID, setSteamAppID] = useState(null);
     const [saleVal, setSaleVal] = useState(null);
     const [origVal, setOrigVal] = useState(null);
     const [discount, setDiscount] = useState(null);
+    const [steamAppID, setSteamAppID] = useState(null);
     const [saleGameTitle, setSaleTitle] = useState(null);
     const [open, setOpen] = useState(true)
     useEffect(() => {
-      const fetchData = async () => {
-      try {
-        let pageURL = props.APIurl.concat(pageNum)
-        let response = await fetch(pageURL);
-        if (!response.ok) {
-          throw new Error(response.statusText);
+        const fetchData = async () => {
+        try {
+          const URLbase = "https://www.cheapshark.com/api/1.0/deals?storeID=1&steamAppID="
+          let APIurlWishList = URLbase.concat(props.wishListArray)
+          let response = await fetch(APIurlWishList);
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+        const data = await response.json();
+        setAllCharacters(data);
+        } catch (err) {
+          console.log(err)
+          setErrorMsg(err)
         }
-      const data = await response.json();
-      setAllCharacters(data);
-      } catch (err) {
-        console.log(err)
-        setErrorMsg(err)
-      }
-    };
-    fetchData();
-    }, [pageNum, props.APIurl])
-  useEffect(() => {
-      const fetchData = async () => {
-      try {
-        let URL = "https://www.cheapshark.com/api/1.0/games?id=".concat(gameID)
-        let response = await fetch(URL);
-        if (!response.ok) {
-          throw new Error(response.statusText);
+      };
+      fetchData();
+      }, [props])
+      useEffect(() => {
+        const fetchData = async () => {
+        try {
+          let URL = "https://www.cheapshark.com/api/1.0/games?id=".concat(gameID)
+          let response = await fetch(URL);
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+        const data = await response.json();
+        let dealData = data.deals
+        setDealLookUp(dealData);
+        setGameLookUp(data)
+        } catch (err) {
+          console.log(err)
+          setErrorMsg(err)
         }
-      const data = await response.json();
-      let dealData = data.deals
-      setDealLookUp(dealData);
-      setGameLookUp(data)
-      } catch (err) {
-        console.log(err)
-        setErrorMsg(err)
-      }
-    };
-    fetchData();
-  }, [gameID])
+      };
+      fetchData();
+    }, [gameID])
   function handleClick (game) {
     let gameSaleID = game.gameID
     setGameID(gameSaleID)
@@ -70,25 +70,22 @@ const Underx = (props) => {
   function handleClose () {
     setOpen(!open);
   }
-  function handleNext () {
-    let pageTo = Number(pageNum)
-    setpageNum(pageTo + 1)
-  }
-  function handlePrev () {
-    let pageTo = Number(pageNum)
-    if (pageTo > 0) {
-      let pageTo = Number(pageNum) 
-      setpageNum(pageTo - 1)
-    }
-  }
   function HandleWishlist (steamAppID) {
     let wishListSteamIDsArray = props.wishListArray
-    wishListSteamIDsArray.concat(steamAppID)
+    let indexID = wishListSteamIDsArray.indexOf(steamAppID);
+    if (indexID === 0) {
+        let steamAppIDCut = steamAppID.concat("%2C")
+        wishListSteamIDsArray.replace(steamAppIDCut, 1);
+    }
+    else {
+      let steamAppIDCut = "%2C".concat(steamAppID)
+      wishListSteamIDsArray.replace(steamAppIDCut, 1);
+    }
     const updateBackend = async () => {
-      const response = await addWishList(steamAppID)
-      console.log("response below (underx)")
-      console.log(response)
-      if (response.message === "success"){
+      const statusCode = await removeWishList(steamAppID)
+      console.log("response below (wishlist)")
+      console.log(statusCode)
+      if (statusCode === 204){
         props.setWishListArray(wishListSteamIDsArray)
         props.setUpdateStateArray([...props.updateStateArray,2])
         setOpen(!open)
@@ -96,6 +93,7 @@ const Underx = (props) => {
     }
     updateBackend()
     
+    setOpen(!open)
   }
   return (
     <div className='containerbox'>
@@ -112,7 +110,7 @@ const Underx = (props) => {
         <h1>Cheapest ever price: ${gameLookUp.cheapestPriceEver.price}</h1>
         <div id='saleText'>{discount}% OFF!!</div>
         <br></br>
-        <b id='headerStyle' className='wishlistMO' onClick={() => HandleWishlist(steamAppID)}>Add to wishlist</b>
+        <b id='headerStyle' className='wishlistMO' onClick={() => HandleWishlist(steamAppID)}>Remove from wishlist</b>
         <br></br>
         <br></br>
         <h1>Stores (cheapest to most expensive)</h1>
@@ -126,7 +124,7 @@ const Underx = (props) => {
           else {        
             return (
             <div id='buttonStyling'>
-              <img href={index} key={index} src = {storeURL} alt=''></img>
+              <img href={index} key={index} src = {storeURL} alt={index}></img>
               <p>Current Price: ${store.price}</p>
               <p>Retail Price: ${store.retailPrice}</p>
             </div>
@@ -137,26 +135,23 @@ const Underx = (props) => {
         
       </div>}
       <div id='buttonContainer'>
-      <button id='buttonStyling' className='buttonStyleRemove1' onClick={() => handlePrev()}><b>&#9664;</b></button>
       {allCharacters.length === 0 &&
       <div id='headerStyle'>No sales...</div>
     }
-
       {allCharacters.map((game, index) => {
         return (
-          <div className='games-container'>
+          <div>
             <button id='buttonStyling' className='buttonStyleRemove' onClick={() => handleClick(game)}>
-              <img href={index} key={index} src = {game.thumb} alt=''></img>
+              <img href={index} key={index} src = {game.thumb} alt={index}></img>
               <p><del>${game.normalPrice}</del></p>
               <p>${game.salePrice}</p>
             </button>
           </div>
         )
       })}
-      <button id='buttonStyling' className='buttonStyleRemove3' onClick={() => handleNext()}><b>&#9654;</b></button>
       </div>
     </div>
   );
 };
 
-export default Underx;
+export default Wishlist;
