@@ -1,49 +1,49 @@
-import React, { useState } from "react";
-import { updateUserInfo } from "../../utils";
-import './updateUser.css';
+import React, { useState } from "react"
+import { updateUserInfo } from "../../utils"
+import "./updateUser.css"
 
 const UpdateUser = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [updateMessage, setUpdateMessage] = useState("");
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
+  const [updateMessage, setUpdateMessage] = useState("")
 
   const handleUsernameUpdate = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      await updateUserInfo("username", username);
-      setUpdateMessage("Username updated successfully");
-      setUsername("");
+      await updateUserInfo("username", username)
+      setUpdateMessage("Username updated successfully")
+      setUsername("")
     } catch (error) {
-      console.log("Error updating username:", error.message);
+      console.log("Error updating username:", error.message)
     }
-  };
+  }
 
   const handleEmailUpdate = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      await updateUserInfo("email", email);
-      setUpdateMessage("Email updated successfully");
-      setEmail("");
+      await updateUserInfo("email", email)
+      setUpdateMessage("Email updated successfully")
+      setEmail("")
     } catch (error) {
-      console.log("Error updating email:", error.message);
+      console.log("Error updating email:", error.message)
     }
-  };
+  }
 
   const handlePasswordUpdate = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      await updateUserInfo("password", password);
-      setUpdateMessage("Password updated successfully");
-      setPassword("");
+      await updateUserInfo("password", password)
+      setUpdateMessage("Password updated successfully")
+      setPassword("")
     } catch (error) {
-      console.log("Error updating password:", error.message);
+      console.log("Error updating password:", error.message)
     }
-  };
+  }
 
   const handleClearMessage = () => {
-    setUpdateMessage("");
-  };
+    setUpdateMessage("")
+  }
 
   return (
     <div className="updateinformation">
@@ -86,7 +86,7 @@ const UpdateUser = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default UpdateUser;
+export default UpdateUser
