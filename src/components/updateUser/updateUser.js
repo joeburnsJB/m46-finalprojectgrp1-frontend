@@ -7,42 +7,73 @@ const UpdateUser = () => {
   const [password, setPassword] = useState("")
   const [email, setEmail] = useState("")
   const [updateMessage, setUpdateMessage] = useState("")
-
+  const [errorMessage, setErrorMessage] = useState("")
   const handleUsernameUpdate = async (e) => {
     e.preventDefault()
+    if (!validateUsername(username)) {
+      setErrorMessage("Failed to update. Please enter a valid username.")
+      return
+    }
     try {
       await updateUserInfo("username", username)
       setUpdateMessage("Username updated successfully")
       setUsername("")
+      setErrorMessage("")
     } catch (error) {
       console.log("Error updating username:", error.message)
+      setErrorMessage("Failed to update. Please enter a valid username.")
     }
   }
 
   const handleEmailUpdate = async (e) => {
     e.preventDefault()
+    if (!validateEmail(email)) {
+      setErrorMessage("Failed to update. Please enter a valid email.")
+      return
+    }
     try {
       await updateUserInfo("email", email)
       setUpdateMessage("Email updated successfully")
       setEmail("")
+      setErrorMessage("")
     } catch (error) {
       console.log("Error updating email:", error.message)
+      setErrorMessage("Failed to update. Please enter a valid email.")
     }
   }
 
   const handlePasswordUpdate = async (e) => {
     e.preventDefault()
+    if (!validatePassword(password)) {
+      setErrorMessage("Failed to update. Please enter a valid password.")
+      return
+    }
     try {
       await updateUserInfo("password", password)
       setUpdateMessage("Password updated successfully")
       setPassword("")
+      setErrorMessage("")
     } catch (error) {
       console.log("Error updating password:", error.message)
+      setErrorMessage("Failed to update. Please enter a valid password.")
     }
   }
 
   const handleClearMessage = () => {
     setUpdateMessage("")
+    setErrorMessage("")
+  }
+
+  const validateUsername = (value) => {
+    return /^[a-zA-Z0-9!@#$%^&*()_+\-=[\]{}|\\:"'<>,.?/~`]+$/.test(value)
+  }
+
+  const validateEmail = (value) => {
+    return /^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/.test(value)
+  }
+
+  const validatePassword = (value) => {
+    return /^[a-zA-Z0-9!@#$%^&*()_+\-=[\]{}|\\:"'<>,.?/~`]+$/.test(value)
   }
 
   return (
@@ -82,7 +113,17 @@ const UpdateUser = () => {
       {updateMessage && (
         <div className="popup-box">
           <p>{updateMessage}</p>
-          <button onClick={handleClearMessage} className="ok-button">OK</button>
+          <button onClick={handleClearMessage} className="ok-button">
+            OK
+          </button>
+        </div>
+      )}
+      {errorMessage && (
+        <div className="popup-box error">
+          <p>{errorMessage}</p>
+          <button onClick={handleClearMessage} className="ok-button">
+            OK
+          </button>
         </div>
       )}
     </div>
