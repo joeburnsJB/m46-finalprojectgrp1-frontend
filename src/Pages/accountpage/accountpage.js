@@ -4,9 +4,11 @@ import DeleteAccount from "../../components/deleteUser/deleteUser"
 import UpdateUser from "../../components/updateUser/updateUser"
 import { authCheck } from "../../utils"
 import { getCookie } from "../../common"
+import "./accountpage.css"
 
 const AccountPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [loadingCheck, setLoadingCheck] = useState(true)
 
   useEffect(() => {
     const jwtToken = getCookie("jwt_token")
@@ -14,32 +16,41 @@ const AccountPage = () => {
       authCheck(jwtToken)
         .then((username) => {
           setIsLoggedIn(true)
+          setLoadingCheck(false)
         })
         .catch((error) => {
           setIsLoggedIn(false)
+          setLoadingCheck(false)
           console.log(error)
         })
     } else {
       setIsLoggedIn(false)
+      setLoadingCheck(false)
     }
   }, [])
+
   return (
     <div>
-      {isLoggedIn ? (
+      {loadingCheck ? (
+        <div className="loading-animation">
+          <div className="loading-spinner"></div>
+        </div>
+      ) : isLoggedIn ? (
         <>
           <UpdateUser />
           <DeleteAccount />
         </>
       ) : (
-        <div>
-          <Link to="/login-register" className="feature-container">
-            <p>To access Users List feature please log in</p>
-            <button className="login-button">Login</button>
-          </Link>
-        </div>
+        <>
+        <h1>Update User Information</h1>
+        <Link to="/login-register" className="feature-container">
+          <p>To change your user details please log in</p>
+          <button className="login-button">Login</button>
+        </Link>
+        </>
       )}
     </div>
   )
 }
 
-export default AccountPage
+export default AccountPage 
