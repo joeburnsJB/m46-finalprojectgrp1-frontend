@@ -29,5 +29,5 @@ export const getCookie = (cookieName) => {
 
 //deleting a cookie
 export const deleteCookie = (cookieName) => {
-  writeCookie(cookieName, "", -1);
+  writeCookie(cookieName, "", -1)
 }
