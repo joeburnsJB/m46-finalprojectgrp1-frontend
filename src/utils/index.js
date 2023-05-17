@@ -1,4 +1,4 @@
-import { writeCookie } from "../common"
+import { deleteCookie, writeCookie } from "../common"
 import { getCookie } from "../common"
 
 
