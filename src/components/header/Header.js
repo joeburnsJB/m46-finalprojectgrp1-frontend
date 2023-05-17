@@ -66,8 +66,8 @@ export default function Header() {
   return (
     <header className='header-container'>
       <section className='logo-section'>
-        <p className='title'>Piston</p>
-        <img src={logo} alt="logo" className='logo' />
+        <Link to="/"><p className='title'>Piston</p></Link>
+        <Link to ="/"><img src={logo} alt="logo" className='logo' /></Link>
       </section>
       <div className='search-bar'>
         <form onSubmit={handleSearch}>
@@ -103,6 +103,7 @@ export default function Header() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/userlist">User List</Link></li>
           <li><Link to="/login-register">Login & Register</Link></li>
+          <li><Link to="/account-details">Update Account</Link></li>
         </ul>
       </div>
     </header>
