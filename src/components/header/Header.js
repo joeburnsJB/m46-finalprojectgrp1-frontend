@@ -66,8 +66,8 @@ export default function Header() {
   return (
     <header className='header-container'>
       <section className='logo-section'>
-        <p className='title'>Piston</p>
-        <img src={logo} alt="logo" className='logo' />
+        <Link to="/"><p className='title'>Piston</p></Link>
+        <Link to ="/"><img src={logo} alt="logo" className='logo' /></Link>
       </section>
       <div className='search-bar'>
         <form onSubmit={handleSearch}>
