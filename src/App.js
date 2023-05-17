@@ -6,7 +6,7 @@ import LoginRegister from './Pages/loginRegister/LoginRegister';
 import UsersList from './Pages/userslist/UsersList';
 import Homepage from './Pages/homepage/Homepage';
 import AccountPage from "./Pages/accountpage/accountpage";
-import SearchPage from "./Pages/searchpage/searchresults";
+import FilterPage from "./Pages/searchpage/gamesFilter";
 
 
 
@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/login-register" element={<LoginRegister />} />
           <Route path="/userlist" element={<UsersList />} />
           <Route path="/account-details" element={<AccountPage />} />
-          <Route path="/search/*" element={<SearchPage />} />
+          <Route path="/search/*" element={<FilterPage />} />
           </Routes>
           </BrowserRouter>
     </>

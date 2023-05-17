@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { addWishList } from '../../utils';
 import './searchresults.css';
 
-const SearchPage = () => {
+const SearchPage = (props) => {
     const [pageNum, setpageNum] = useState(0);
     const [steamData, setSteamData] = useState(null);
     const [allCharacters, setAllCharacters] = useState([]);
@@ -24,7 +24,8 @@ const SearchPage = () => {
     let locationPathname = location.pathname.replaceAll("/search/", "")
     const fetchData = async () => {
     try {
-      let pageURL = "https://www.cheapshark.com/api/1.0/games?title=".concat(locationPathname)
+      let pageURL = "https://www.cheapshark.com/api/1.0/deals?title=".concat(locationPathname).concat(props.urlParams)
+      console.log(pageURL)
       let response = await fetch(pageURL);
       if (!response.ok) {
         throw new Error(response.statusText);
@@ -37,7 +38,7 @@ const SearchPage = () => {
     }
   };
   fetchData();
-  }, [location, pageNum])
+  }, [location, pageNum, props.urlParams])
 useEffect(() => {
     const fetchData = async () => {
     try {
