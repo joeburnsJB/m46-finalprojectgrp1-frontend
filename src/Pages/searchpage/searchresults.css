@@ -62,13 +62,7 @@
     margin-top: -39%;
   }
   
-  #buttonStyling {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin-top: 5%;
-    color: rgb(210, 210, 210);
-  }
+  
   
   .buttonStyleRemove {
     border: none;
