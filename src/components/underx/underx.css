@@ -21,11 +21,11 @@
   flex-direction: column;
 }
   
-  #headerStyle {
+ .headerStyle {
     color: rgb(210, 210, 210);
   }
   
-  #xStyle {
+  .xStyle {
     display: flex;
     justify-content: right;
     margin: 0.5%;
@@ -76,7 +76,7 @@
     padding: 0;
   }
 
-  #saleText {
+ .saleText {
     margin-top: 1%;
     font-size: 3em;
     font-weight: bolder;
