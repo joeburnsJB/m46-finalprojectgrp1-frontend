@@ -22,14 +22,6 @@
   flex-direction: column;
 }
   
-  #xStyle {
-    display: flex;
-    justify-content: right;
-    margin: 0.5%;
-    padding: 10px;
-    cursor: pointer;
-  }
-
   #buttonContainer {
     display: flex;
     justify-content: space-around;

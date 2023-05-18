@@ -21,14 +21,6 @@
   flex-direction: column;
 }
   
-  .xStyle {
-    display: flex;
-    justify-content: right;
-    margin: 0.5%;
-    padding: 10px;
-    cursor: pointer;
-  }
-
   .buttonContainer {
     display: flex;
     justify-content: space-around;
@@ -45,7 +37,7 @@
     margin-left: 98%;
     margin-top: -39%;
   }
-  
+
   .diffStoreArray {
     display: flex;
     justify-content: space-around;

@@ -34,3 +34,11 @@
     font-weight: bolder;
     color: rgb(210, 210, 210);
   }
+  
+  .xStyle {
+    display: flex;
+    justify-content: right;
+    margin: 0.5%;
+    padding: 10px;
+    cursor: pointer;
+  }
