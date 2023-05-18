@@ -138,7 +138,7 @@ const Wishlist = (props) => {
               }
               else {
                 return (
-                  <div id="buttonStyling">
+                  <div id="buttonStyling" key={index}>
                     <img href={index} key={index} src={storeURL} alt={index}></img>
                     <p>Current Price: ${store.price}</p>
                     <p>Retail Price: ${store.retailPrice}</p>
@@ -155,9 +155,9 @@ const Wishlist = (props) => {
         }
         {allCharacters.map((game, index) => {
           return (
-            <div>
+            <div key={index}>
               <button id="buttonStyling" className="buttonStyleRemove" onClick={() => handleClick(game)}>
-                <img href={index} key={index} src={game.thumb} alt={index}></img>
+                <img href={index} src={game.thumb} alt={index}></img>
                 <p><del>${game.normalPrice}</del></p>
                 <p>${game.salePrice}</p>
               </button>
