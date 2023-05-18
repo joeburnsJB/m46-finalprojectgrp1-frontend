@@ -139,7 +139,7 @@ const Underx = (props) => {
               let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")
               if (store.price === store.retailPrice) {
                 return (
-                  <div id="buttonStyling" key={index}>
+                  <div className="buttonStyling" key={index}>
                     <img href={index} src={storeURL} alt=""></img>
                     <p>Current Price: ${store.price}</p>
                     <p>Retail Price: ${store.retailPrice}</p>
@@ -151,7 +151,7 @@ const Underx = (props) => {
 
         </div>}
       <div id="buttonContainer">
-        <button id="buttonStyling" className="buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664;</b></button>
+        <button className="buttonStyling buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664;</b></button>
         {allCharacters.length === 0 &&
           <div id="headerStyle">No sales...</div>
         }
@@ -159,7 +159,7 @@ const Underx = (props) => {
         {allCharacters.map((game, index) => {
           return (
             <div className="games-container" key={index}>
-              <button id="buttonStyling" className="buttonStyleRemove" onClick={() => handleClick(game)}>
+              <button className="buttonStyling buttonStyleRemove" onClick={() => handleClick(game)}>
                 <img href={index} src={game.thumb} alt=""></img>
                 <p><del>${game.normalPrice}</del></p>
                 <p>${game.salePrice}</p>

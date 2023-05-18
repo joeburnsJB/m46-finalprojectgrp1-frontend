@@ -61,7 +61,7 @@
     margin-top: -39%;
   }
   
-  #buttonStyling {
+ .buttonStyling {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
