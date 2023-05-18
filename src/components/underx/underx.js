@@ -153,7 +153,7 @@ const Underx = (props) => {
       <div id="buttonContainer">
         <button className="buttonStyling buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664;</b></button>
         {allCharacters.length === 0 &&
-          <div id="headerStyle">No sales...</div>
+          <div className="headerStyle">No sales...</div>
         }
 
         {allCharacters.map((game, index) => {
