@@ -131,7 +131,7 @@ const SearchPage = () => {
   return (
     <div className="containerbox">
       <br></br>
-      <h1 id="headerStyle">Search Results
+      <h1 className="headerStyle">Search Results
       </h1>
       {errorMsg && <h3>{errorMsg}</h3>}
       {open ?
@@ -143,7 +143,7 @@ const SearchPage = () => {
           <h1>Cheapest ever price: ${gameLookUp.cheapestPriceEver.price}</h1>
           <div id="saleText">{discount}% OFF!!</div>
           <br></br>
-          <b id="headerStyle" className="wishlistMO" onClick={() => HandleWishlist(steamAppID)}>Add to wishlist</b>
+          <b className="headerStyle wishlistMO" onClick={() => HandleWishlist(steamAppID)}>Add to wishlist</b>
           <br></br>
           <br></br>
           <h1>Stores (cheapest to most expensive)</h1>
@@ -167,7 +167,7 @@ const SearchPage = () => {
       <div id="buttonContainer">
         <button className="buttonStyling buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664;</b></button>
         {allCharacters.length === 0 &&
-          <div id="headerStyle">No sales...</div>
+          <div className="headerStyle">No sales...</div>
         }
 
         {allCharacters.map((game, index) => {

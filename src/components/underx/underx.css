@@ -21,10 +21,6 @@
   flex-direction: column;
 }
   
- .headerStyle {
-    color: rgb(210, 210, 210);
-  }
-  
   .xStyle {
     display: flex;
     justify-content: right;
