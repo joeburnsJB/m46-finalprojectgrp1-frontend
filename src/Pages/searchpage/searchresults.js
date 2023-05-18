@@ -151,38 +151,34 @@ const SearchPage = () => {
               let storeIDForURL = store.storeID - 1
               let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")
               if (store.price === store.retailPrice) {
-                return 
-              }
-              else {
                 return (
-                  <div id="buttonStyling">
-                    <img href={index} key={index} src={storeURL} alt=""></img>
+                  <div id="buttonStyling" key={index}>
+                    <img href={index} src={storeURL} alt=""></img>
                     <p>Current Price: ${store.price}</p>
                     <p>Retail Price: ${store.retailPrice}</p>
                   </div>
                 )
               }
-
             })}
           </div>
 
         </div>}
       <div id="buttonContainer">
-        <button id="buttonStyling" className="buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664</b></button>
+        <button id="buttonStyling" className="buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664;</b></button>
         {allCharacters.length === 0 &&
           <div id="headerStyle">No sales...</div>
         }
 
         {allCharacters.map((game, index) => {
           return (
-            <div className="games-container">
+            <div className="games-container" key={index}>
               <button id="buttonStyling" className="buttonStyleRemove" onClick={() => handleClick(game)}>
-                <img href={index} key={index} src={game.thumb} alt=""></img>
+                <img href={index} src={game.thumb} alt=""></img>
               </button>
             </div>
           )
         })}
-        <button id="buttonStyling" className="buttonStyleRemove3" onClick={() => handleNext()}><b>&#9654</b></button>
+        <button id="buttonStyling" className="buttonStyleRemove3" onClick={() => handleNext()}><b>&#9654;</b></button>
       </div>
     </div>
   )
