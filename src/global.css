@@ -5,3 +5,10 @@
     margin-top: 5%;
     color: rgb(210, 210, 210);
   }
+  
+  .buttonStyleRemove {
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+  }
