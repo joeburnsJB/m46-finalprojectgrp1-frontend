@@ -7,7 +7,7 @@ import UsersList from "./Pages/userslist/UsersList"
 import Homepage from "./Pages/homepage/Homepage"
 import AccountPage from "./Pages/accountpage/accountpage"
 import SearchPage from "./Pages/searchpage/searchresults"
-
+import Footer from "./components/footer/Footer"
 
 
 const App = () => {
@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/account-details" element={<AccountPage />} />
         <Route path="/search/*" element={<SearchPage />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
