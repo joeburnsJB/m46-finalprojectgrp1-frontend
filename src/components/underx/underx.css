@@ -39,7 +39,7 @@
     flex-wrap: wrap;
   }
   
-  #popUpBox {
+  .popUpBox {
     width: 90vw;
     min-height: 90vh;
     position: fixed; 

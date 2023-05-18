@@ -122,7 +122,7 @@ const Underx = (props) => {
       {errorMsg && <h3>{errorMsg}</h3>}
       {open ?
         <div></div> :
-        <div id="popUpBox">
+        <div className="popUpBox">
           <div className="xStyle" onClick={() => handleClose()}>❌</div>
           <div className="saleText">Game: {saleGameTitle}</div>
           <div className="saleText">Price: ${saleVal} <del>${origVal}</del></div>
