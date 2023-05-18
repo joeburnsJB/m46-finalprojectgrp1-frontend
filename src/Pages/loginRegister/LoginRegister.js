@@ -20,8 +20,6 @@ const LoginRegister = () => {
 
   useEffect(() => {
     let jwt = getCookie("jwt_token")
-    console.log("!!!!!!!!!!")
-    console.log(jwt)
 
     if (jwt !== false) {
       loginWithToken(jwt)
