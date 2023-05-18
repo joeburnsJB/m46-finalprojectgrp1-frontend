@@ -6,7 +6,6 @@ const DeleteAccount = () => {
   const handleDelete = async () => {
     try {
       await deleteAccount()
-      console.log("Account deleted successfully")
     } catch (error) {
       console.log("Error deleting account:", error.message)
     }

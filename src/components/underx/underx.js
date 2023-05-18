@@ -104,8 +104,6 @@ const Underx = (props) => {
 
     const updateBackend = async () => {
       const response = await addWishList(steamAppID)
-      console.log("response below (underx)")
-      console.log(response)
 
       if (response.message === "success") {
         props.setWishListArray(wishListSteamIDsArray)
