@@ -1,6 +1,6 @@
 import { writeCookie } from "../common"
 import { getCookie } from "../common"
-import { Link } from 'react-router-dom';
+
 
 export const registerUser = async (username, password, email, newUser) => {
   try {
@@ -167,7 +167,7 @@ export const deleteAccount = async () => {
 
     if (response.ok) {
       window.alert("Account deleted successfully")
-      return <Link to="/login-register" />;
+      window.location.reload();
     } else {
       const errorData = await response.json()
       throw new Error(errorData.errorMessage)
