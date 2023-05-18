@@ -138,9 +138,6 @@ const Underx = (props) => {
               let storeIDForURL = store.storeID - 1
               let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")
               if (store.price === store.retailPrice) {
-                return (console.log())
-              }
-              else {
                 return (
                   <div id="buttonStyling" key={index}>
                     <img href={index} src={storeURL} alt=""></img>
@@ -149,7 +146,6 @@ const Underx = (props) => {
                   </div>
                 )
               }
-
             })}
           </div>
 
