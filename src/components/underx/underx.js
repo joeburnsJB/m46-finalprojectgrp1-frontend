@@ -117,7 +117,7 @@ const Underx = (props) => {
   return (
     <div className="containerbox">
       <br></br>
-      <h1 id="headerStyle">{props.titleText}
+      <h1 className="headerStyle">{props.titleText}
       </h1>
       {errorMsg && <h3>{errorMsg}</h3>}
       {open ?
