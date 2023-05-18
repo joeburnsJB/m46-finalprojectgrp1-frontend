@@ -18,32 +18,32 @@ function Footer() {
   return (
     <div className="main-footer">
       <div className="container">
-        <div className="row">
+        <div className="container-row-one">
           {/* Column1 */}
-          <div className="col">
+          <div className="row-one-col">
             <h4>COMPANY INFO</h4>
-            <h1 className="list-unstyled">
+            <ul className="list-unstyled">
               <li>Terms of Use</li>
               <li>Privacy Policy</li>
-            </h1>
+            </ul>
           </div>
           {/* Column2 */}
-          <div className="col">
+          <div className="row-one-col">
             <h4>SUPPORT</h4>
-            <ui className="list-unstyled">
+            <ul className="list-unstyled">
               <li>Help</li>
              
              
-            </ui>
+            </ul>
           </div>
           {/* Column3 */}
-          <div className="col">
+          <div className="row-one-col">
             <h4>LANGUAGES</h4>
-            <ui className="list-unstyled">
+            <ul className="list-unstyled">
               <li>English</li>
               <li>French</li>
               <li>Chinese</li>
-            </ui>
+            </ul>
           </div>
         </div>
         <hr />
