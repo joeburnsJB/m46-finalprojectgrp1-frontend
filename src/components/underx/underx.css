@@ -21,12 +21,6 @@
   flex-direction: column;
 }
   
-  .buttonContainer {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
   #closeX {
     position: absolute;
     width: 25px;
