@@ -136,7 +136,7 @@ const SearchPage = () => {
       {errorMsg && <h3>{errorMsg}</h3>}
       {open ?
         <div></div> :
-        <div id="popUpBox">
+        <div className="popUpBox">
           <div id="xStyle" onClick={() => handleClose()}>❌</div>
           <div id="saleText">Game: {saleGameTitle}</div>
           <div id="saleText">Price: ${saleVal} <del>${origVal}</del></div>

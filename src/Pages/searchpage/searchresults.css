@@ -36,17 +36,6 @@
     flex-wrap: wrap;
   }
   
-  #popUpBox {
-    width: 90vw;
-    min-height: 90vh;
-    position: fixed; 
-    top: 3%; 
-    left: 5%;
-    background-color: rgba(0, 0, 0, 0.71);
-    border-radius: 25px;
-    z-index: 9999;
-  }
-  
   #closeX {
     position: absolute;
     width: 25px;
