@@ -167,7 +167,7 @@ const Underx = (props) => {
             </div>
           )
         })}
-        <button id="buttonStyling" className="buttonStyleRemove3" onClick={() => handleNext()}><b>&#9654;</b></button>
+        <button className="buttonStyling buttonStyleRemove3" onClick={() => handleNext()}><b>&#9654;</b></button>
       </div>
     </div>
   )
