@@ -22,7 +22,6 @@ const SearchPage = () => {
   let location = useLocation()
 
   useEffect(() => {
-    console.log(location.pathname)
     let locationPathname = location.pathname.replaceAll("/search/", "")
     const fetchData = async () => {
       try {
@@ -77,7 +76,6 @@ const SearchPage = () => {
         }
 
         const data = await response.json()
-        console.log(data[0].steamRatingPercent)
         
         setSteamData(data)
       } catch (err) {
@@ -121,8 +119,6 @@ const SearchPage = () => {
   function HandleWishlist(steamAppID) {
     const updateBackend = async () => {
       const response = await addWishList(steamAppID)
-      console.log("response below (underx)")
-      console.log(response)
       if (response.message === "success") {
         setOpen(!open)
       }
@@ -155,7 +151,7 @@ const SearchPage = () => {
               let storeIDForURL = store.storeID - 1
               let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")
               if (store.price === store.retailPrice) {
-                return (console.log())
+                return 
               }
               else {
                 return (

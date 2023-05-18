@@ -16,8 +16,6 @@ export const getCookie = (cookieName) => {
   //the pattern we want to find in our cookie
   //find the cookie with name we pass to the function
   const re = new RegExp(`(?<=${cookieName}=)[^;]*`)
-  console.log("regular expression")
-  console.log(re)
   try {
     let cookie = document.cookie.match(re)[0] //will raise a type error if the cookie isn't found
     return cookie
