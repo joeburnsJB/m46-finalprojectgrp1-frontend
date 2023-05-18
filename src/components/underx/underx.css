@@ -83,7 +83,7 @@
     color: rgb(210, 210, 210);
   }
 
-  #diffStoreArray {
+  .diffStoreArray {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
