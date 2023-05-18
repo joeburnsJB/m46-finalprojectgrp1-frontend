@@ -151,7 +151,7 @@ const SearchPage = () => {
               let storeIDForURL = store.storeID - 1
               let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")
               if (store.price === store.retailPrice) {
-                return 
+                return ""
               }
               else {
                 return (
