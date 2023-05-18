@@ -21,35 +21,6 @@
   flex-direction: column;
 }
   
-  #headerStyle {
-    color: rgb(210, 210, 210);
-  }
-  
-  #xStyle {
-    display: flex;
-    justify-content: right;
-    margin: 0.5%;
-    padding: 10px;
-    cursor: pointer;
-  }
-
-  #buttonContainer {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  #popUpBox {
-    width: 90vw;
-    min-height: 90vh;
-    position: fixed; 
-    top: 3%; 
-    left: 5%;
-    background-color: rgba(0, 0, 0, 0.71);
-    border-radius: 25px;
-    z-index: 9999;
-  }
-  
   #closeX {
     position: absolute;
     width: 25px;
@@ -59,35 +30,6 @@
     border-radius: 25px;
     margin-left: 98%;
     margin-top: -39%;
-  }
-  
-  #buttonStyling {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin-top: 5%;
-    color: rgb(210, 210, 210);
-  }
-  
-  .buttonStyleRemove {
-    border: none;
-    background: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  #saleText {
-    margin-top: 1%;
-    font-size: 3em;
-    font-weight: bolder;
-    color: rgb(210, 210, 210);
-  }
-
-  #diffStoreArray {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
   }
 
 b {
