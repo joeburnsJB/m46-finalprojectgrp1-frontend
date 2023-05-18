@@ -150,7 +150,7 @@ const Underx = (props) => {
           </div>
 
         </div>}
-      <div id="buttonContainer">
+      <div className="buttonContainer">
         <button className="buttonStyling buttonStyleRemove1" onClick={() => handlePrev()}><b>&#9664;</b></button>
         {allCharacters.length === 0 &&
           <div className="headerStyle">No sales...</div>

@@ -33,7 +33,7 @@
     cursor: pointer;
   }
 
-  #buttonContainer {
+  .buttonContainer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
