@@ -147,7 +147,7 @@ const SearchPage = () => {
           <br></br>
           <br></br>
           <h1>Stores (cheapest to most expensive)</h1>
-          <div id="diffStoreArray">
+          <div className="diffStoreArray">
             {dealLookUp.map((store, index) => {
               let storeIDForURL = store.storeID - 1
               let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")

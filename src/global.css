@@ -34,11 +34,18 @@
     font-weight: bolder;
     color: rgb(210, 210, 210);
   }
-  
+
   .xStyle {
     display: flex;
     justify-content: right;
     margin: 0.5%;
     padding: 10px;
     cursor: pointer;
+  }
+
+  .diffStoreArray {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
   }

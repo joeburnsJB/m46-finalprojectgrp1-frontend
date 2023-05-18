@@ -38,13 +38,6 @@
     margin-top: -39%;
   }
 
-  .diffStoreArray {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
 b {
   box-shadow: 0 0 0 teal;
   background-color: rgb(64, 94, 122);
