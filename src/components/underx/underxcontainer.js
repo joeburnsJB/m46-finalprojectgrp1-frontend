@@ -20,7 +20,7 @@ const Underxcontainer = (props) => {
 
   return (
     <div className="underxcontainer">
-      <p id="testText"></p>
+      <p className="testText"></p>
       {props.isLoggedIn ?
         <>
           <Underx id="under7" setWishListArray={setWishListArray} wishListArray={wishListArray} setUpdateStateArray={setUpdateStateArray} updateStateArray={updateStateArray} APIurl="https://www.cheapshark.com/api/1.0/deals?storeID=1&steamRating=85&upperPrice=7&lowerPrice=4&pageSize=22&pageNumber=" titleText="Games under $7" />
