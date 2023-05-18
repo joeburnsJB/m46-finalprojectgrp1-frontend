@@ -166,7 +166,7 @@ export const deleteAccount = async () => {
 
     if (response.ok) {
       window.alert("Account deleted successfully")
-      window.location.href = "/login-register"
+      window.location.assign("/login-register");
     } else {
       const errorData = await response.json()
       throw new Error(errorData.errorMessage)
