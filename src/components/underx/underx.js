@@ -144,8 +144,8 @@ const Underx = (props) => {
               }
               else {
                 return (
-                  <div id="buttonStyling">
-                    <img href={index} key={index} src={storeURL} alt=""></img>
+                  <div id="buttonStyling" key={index}>
+                    <img href={index} src={storeURL} alt=""></img>
                     <p>Current Price: ${store.price}</p>
                     <p>Retail Price: ${store.retailPrice}</p>
                   </div>
@@ -164,9 +164,9 @@ const Underx = (props) => {
 
         {allCharacters.map((game, index) => {
           return (
-            <div className="games-container">
+            <div className="games-container" key={index}>
               <button id="buttonStyling" className="buttonStyleRemove" onClick={() => handleClick(game)}>
-                <img href={index} key={index} src={game.thumb} alt=""></img>
+                <img href={index} src={game.thumb} alt=""></img>
                 <p><del>${game.normalPrice}</del></p>
                 <p>${game.salePrice}</p>
               </button>
