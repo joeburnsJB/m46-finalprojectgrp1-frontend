@@ -58,7 +58,6 @@ export default function Header() {
   }
 
   const handleResultClick = (game) => {
-    console.log(`Clicked gameID: ${game.gameID}`)
     setSearchQuery(game.external)
     let linkQueryValue = "/search/".concat(game.external)
     setLinkQuery(linkQueryValue)

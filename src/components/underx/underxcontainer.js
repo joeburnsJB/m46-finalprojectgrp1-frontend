@@ -18,8 +18,6 @@ const Underxcontainer = (props) => {
     fetchData()
   }, [updateStateArray])
 
-  console.log({ wishListArray })
-
   return (
     <div className="underxcontainer">
       <p id="testText"></p>

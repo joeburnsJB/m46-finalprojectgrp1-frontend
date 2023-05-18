@@ -1,5 +1,6 @@
-import { writeCookie } from "../common"
+import { deleteCookie, writeCookie } from "../common"
 import { getCookie } from "../common"
+
 
 export const registerUser = async (username, password, email, newUser) => {
   try {
@@ -15,9 +16,7 @@ export const registerUser = async (username, password, email, newUser) => {
         "email": email
       })
     })
-    console.log(response)
     const data = await response.json()
-    console.log(data)
     newUser(data.user.username)
     writeCookie("jwt_token", data.user.token, 7)
   } catch (error) {
@@ -40,7 +39,6 @@ export const loginUser = async (username, password, email, newUser) => {
       })
     })
     const data = await response.json()
-    console.log(data)
     newUser(data.user.username)
     writeCookie("jwt_token", data.user.token, 7)
   } catch (error) {
@@ -59,7 +57,6 @@ export const authCheck = async (jwtToken) => {
       }
     })
     const data = await response.json()
-    console.log("authCheck", data)
     return data.user.username
   } catch (error) {
     console.log(error)
@@ -80,7 +77,6 @@ export const addWishList = async (gameID) => {
       })
     })
     const data = await response.json()
-    console.log(data)
     return data
   } catch (error) {
     console.log(error)
@@ -106,10 +102,8 @@ export const getWishList = async () => {
 }
 
 export const removeWishList = async (gameID) => {
-  console.log("in remove wishlist")
   try {
     let jwt = getCookie("jwt_token")
-    console.log("jwt here", jwt)
     const response = await fetch(`${process.env.REACT_APP_BASE_URL}wishlists/deletewishlist`, {
       method: "DELETE",
       headers: {
@@ -121,12 +115,9 @@ export const removeWishList = async (gameID) => {
       })
     })
     let statusCode = await response.status
-    console.log("status below")
-    console.log(statusCode)
     return statusCode
   } catch (error) {
-    console.log("error below")
-    console.log(error)
+    console.log("error", error)
   }
 }
 
@@ -148,6 +139,10 @@ export const getUsers = async () => {
   }
 }
 
+export const deleteCookie = (name) => {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+}
+
 export const deleteAccount = async () => {
   try {
     const token = getCookie("jwt_token")
@@ -167,7 +162,6 @@ export const deleteAccount = async () => {
     if (response.ok) {
       deleteCookie("jwt_token")
       window.alert("Account deleted successfully")
-      window.location.href = "/login-register"
     } else {
       const errorData = await response.json()
       throw new Error(errorData.errorMessage)
@@ -196,7 +190,6 @@ export const updateUserInfo = async (updateKey, updateValue) => {
     })
 
     if (response.ok) {
-      console.log("User information updated successfully")
       return username
     } else {
       const errorData = await response.json()

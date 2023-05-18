@@ -104,8 +104,6 @@ const Underx = (props) => {
 
     const updateBackend = async () => {
       const response = await addWishList(steamAppID)
-      console.log("response below (underx)")
-      console.log(response)
 
       if (response.message === "success") {
         props.setWishListArray(wishListSteamIDsArray)
@@ -140,18 +138,14 @@ const Underx = (props) => {
               let storeIDForURL = store.storeID - 1
               let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")
               if (store.price === store.retailPrice) {
-                return (console.log())
-              }
-              else {
                 return (
-                  <div id="buttonStyling">
-                    <img href={index} key={index} src={storeURL} alt=""></img>
+                  <div id="buttonStyling" key={index}>
+                    <img href={index} src={storeURL} alt=""></img>
                     <p>Current Price: ${store.price}</p>
                     <p>Retail Price: ${store.retailPrice}</p>
                   </div>
                 )
               }
-
             })}
           </div>
 
@@ -164,9 +158,9 @@ const Underx = (props) => {
 
         {allCharacters.map((game, index) => {
           return (
-            <div className="games-container">
+            <div className="games-container" key={index}>
               <button id="buttonStyling" className="buttonStyleRemove" onClick={() => handleClick(game)}>
-                <img href={index} key={index} src={game.thumb} alt=""></img>
+                <img href={index} src={game.thumb} alt=""></img>
                 <p><del>${game.normalPrice}</del></p>
                 <p>${game.salePrice}</p>
               </button>
