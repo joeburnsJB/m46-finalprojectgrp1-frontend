@@ -46,13 +46,6 @@
     margin-top: -39%;
   }
   
- .saleText {
-    margin-top: 1%;
-    font-size: 3em;
-    font-weight: bolder;
-    color: rgb(210, 210, 210);
-  }
-
   .diffStoreArray {
     display: flex;
     justify-content: space-around;

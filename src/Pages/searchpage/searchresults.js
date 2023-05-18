@@ -138,10 +138,10 @@ const SearchPage = () => {
         <div></div> :
         <div className="popUpBox">
           <div id="xStyle" onClick={() => handleClose()}>❌</div>
-          <div id="saleText">Game: {saleGameTitle}</div>
-          <div id="saleText">Price: ${saleVal} <del>${origVal}</del></div>
+          <div className="saleText">Game: {saleGameTitle}</div>
+          <div className="saleText">Price: ${saleVal} <del>${origVal}</del></div>
           <h1>Cheapest ever price: ${gameLookUp.cheapestPriceEver.price}</h1>
-          <div id="saleText">{discount}% OFF!!</div>
+          <div className="saleText">{discount}% OFF!!</div>
           <br></br>
           <b className="headerStyle wishlistMO" onClick={() => HandleWishlist(steamAppID)}>Add to wishlist</b>
           <br></br>

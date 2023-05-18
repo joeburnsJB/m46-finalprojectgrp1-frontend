@@ -27,3 +27,10 @@
     border-radius: 25px;
     z-index: 9999;
   }
+
+  .saleText {
+    margin-top: 1%;
+    font-size: 3em;
+    font-weight: bolder;
+    color: rgb(210, 210, 210);
+  }
