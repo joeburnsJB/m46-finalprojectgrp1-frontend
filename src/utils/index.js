@@ -162,7 +162,6 @@ export const deleteAccount = async () => {
     if (response.ok) {
       deleteCookie("jwt_token")
       window.alert("Account deleted successfully")
-      window.location.reload();
     } else {
       const errorData = await response.json()
       throw new Error(errorData.errorMessage)
