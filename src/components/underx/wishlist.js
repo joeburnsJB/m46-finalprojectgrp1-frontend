@@ -133,7 +133,7 @@ const Wishlist = (props) => {
             {dealLookUp.map((store, index) => {
               let storeIDForURL = store.storeID - 1
               let storeURL = "https://www.cheapshark.com/img/stores/banners/".concat(storeIDForURL).concat(".png")
-              if (store.price =! store.retailPrice) {
+              if (store.price !== store.retailPrice) {
                 return (
                   <div id="buttonStyling" key={index}>
                     <img href={index} key={index} src={storeURL} alt={index}></img>
