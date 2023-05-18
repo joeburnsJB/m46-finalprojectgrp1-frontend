@@ -1,6 +1,7 @@
 import { writeCookie } from "../common"
 import { getCookie } from "../common"
 
+
 export const registerUser = async (username, password, email, newUser) => {
   try {
     const response = await fetch(`${process.env.REACT_APP_BASE_URL}users/register`, {
